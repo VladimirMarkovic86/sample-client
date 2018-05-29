@@ -1,6 +1,6 @@
-(defproject sample-client "0.1.0-SNAPSHOT"
-  :description    "Sample client project"
-  :url            "http://gitlab:1610/"
+(defproject sample-client "0.1.0"
+  :description    "Sample client"
+  :url            "http://gitlab:1610/VladimirMarkovic86/sample-client"
   :license        {:name "Eclipse Public License"
                    :url "http://www.eclipse.org/legal/epl-v10.html"}
   :resource-paths ["resources"]
