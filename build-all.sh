@@ -9,5 +9,5 @@ cd ../js_lib
 lein install
 cd ../framework_lib
 lein install
-cd ../personal_organiser_client
+cd ../sample_client
 lein cljsbuild once dev
