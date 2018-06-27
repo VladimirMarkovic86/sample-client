@@ -3,11 +3,13 @@
                                      input div a nav]]
            [ajax-lib.core :refer [ajax get-response]]
            [js-lib.core :as md]
-           [sample-client.person.controller :as pc :refer [nav-link]]))
+           [sample-client.person.controller :as pc]
+           [sample-client.user.controller :as uc]))
 
 (defn form
  "Generate table HTML element that contains login form"
- [login-evt]
+ [login-evt
+  sign-up-evt]
  (gen
   (table
    [(tr
@@ -33,15 +35,37 @@
                :required "required"}))]
      )
     (tr
+     [(td
+       (label "remember me"
+              {:for "chkRememberMeId"}))
+      (td
+       (input ""
+              {:id "chkRememberMeId"
+               :type "checkbox"}))]
+     )
+    (tr
       [(td)
        (td
-        (input ""
-               {:id "btnLoginId"
-                :name "btnLoginN"
-                :type "button"
-                :value "Login"}
-               login-evt))]
-     )]
+        (input
+          ""
+          {:id "btnLoginId"
+           :name "btnLoginN"
+           :type "button"
+           :value "Login"}
+          login-evt))]
+     )
+    (tr
+      [(td)
+       (td
+        (a
+          "Sign up"
+          {:id "aSignUpId"
+           :style
+             {:float "right"}}
+          sign-up-evt))
+       ]
+     )
+     ]
    {:class "login"}))
  )
 
@@ -59,14 +83,16 @@
   [(a "Home"
       {:id "aHomeId"}
       {:onclick {:evt-fn home-fn}})
+   (a "User"
+      {:id "aUserId"}
+      {:onclick {:evt-fn uc/nav-link}})
    (a "Person"
       {:id "aPersonId"}
       {:onclick {:evt-fn pc/nav-link}})
    (a "Log out"
       {:id "aLogoutId"}
       {:onclick {:evt-fn logout-fn}})
-   ])
- )
+   ]))
 
 (defn template
  "Template of main page"
@@ -81,6 +107,4 @@
    (div ""
         {:class "footer"})])
  )
-
-
 

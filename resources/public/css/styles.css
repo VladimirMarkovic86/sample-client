@@ -6,25 +6,17 @@ html, body {
   color: white;
 }
 
-.login {
- position: absolute;
- top: calc(50% - 72px);
- left: calc(50% - 142px);
-}
-
 .body {
  height: 100%;
  background-image: linear-gradient(red, blue);
-}
-
-.login {
- top: calc(50% - 72px);
- left: calc(50% - 142px);
- position: absolute;
+ display: grid;
+ justify-content: center;
+ align-content: center;
 }
 
 input[type="text"],
 input[type="password"],
+input[type="email"],
 input[type="number"],
 input[type="date"] {
  border-radius: 6px;
@@ -107,5 +99,13 @@ a:hover {
  overflow: auto;
  border-radius: 0 10px;
  padding: 10px;
+}
+
+.signUp h3{
+ text-align: center;
+}
+
+.signUp td:nth-child(1){
+ text-align: right;
 }
 
