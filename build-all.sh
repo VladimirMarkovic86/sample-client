@@ -9,5 +9,7 @@ cd ../js_lib
 lein install
 cd ../framework_lib
 lein install
+cd ../client_test_lib
+lein install
 cd ../sample_client
 lein cljsbuild once dev

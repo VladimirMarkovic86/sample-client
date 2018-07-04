@@ -10,7 +10,7 @@
  (gen
   [(div
     (a "Create"
-       nil
+       {:id "aCreateId"}
        {:onclick {:evt-fn create-entity
                   :evt-p table-conf}}))
    (div

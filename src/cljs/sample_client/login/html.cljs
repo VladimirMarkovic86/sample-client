@@ -3,6 +3,7 @@
                                      input div a nav]]
            [ajax-lib.core :refer [ajax get-response]]
            [js-lib.core :as md]
+           [sample-client.test-bot :refer [run-test]]
            [sample-client.person.controller :as pc]
            [sample-client.user.controller :as uc]))
 
@@ -74,25 +75,40 @@
  []
  (md/remove-element-content ".content")
  (md/remove-element-content ".sidebar-menu")
- (md/set-inner-html ".content" "Home"))
+ (md/append-element
+   ".content"
+   (gen
+     [(div
+        "Home")
+      (input
+        ""
+        {:type "button"
+         :value "Test"}
+        {:onclick {:evt-fn run-test}})]
+     ))
+  )
 
 (defn nav-fn
  "Header navigation menu"
  [logout-fn]
  (nav
-  [(a "Home"
-      {:id "aHomeId"}
-      {:onclick {:evt-fn home-fn}})
-   (a "User"
-      {:id "aUserId"}
-      {:onclick {:evt-fn uc/nav-link}})
-   (a "Person"
-      {:id "aPersonId"}
-      {:onclick {:evt-fn pc/nav-link}})
-   (a "Log out"
-      {:id "aLogoutId"}
-      {:onclick {:evt-fn logout-fn}})
-   ]))
+  [(a
+     "Home"
+     {:id "aHomeId"}
+     {:onclick {:evt-fn home-fn}})
+   (a
+     "User"
+     {:id "aUserId"}
+     {:onclick {:evt-fn uc/nav-link}})
+   (a
+     "Person"
+     {:id "aPersonId"}
+     {:onclick {:evt-fn pc/nav-link}})
+   (a
+     "Log out"
+     {:id "aLogoutId"}
+     {:onclick {:evt-fn logout-fn}})])
+ )
 
 (defn template
  "Template of main page"
