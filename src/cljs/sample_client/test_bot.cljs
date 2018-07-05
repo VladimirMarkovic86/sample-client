@@ -7,7 +7,8 @@
             [utils-lib.core :as utils]))
 
 (defn fill-out-and-submit-form
-  ""
+  "Fills out person form and submits it
+   and window-number is used as prefix for every text parameter"
   [window-number
    window-obj]
   (opener-console
@@ -74,7 +75,7 @@
     window-obj))
 
 (defn edit-inserted-entity
-  ""
+  "Open edit form for particular entity"
   [window-number
    window-obj]
   (opener-console
@@ -94,7 +95,7 @@
  )
 
 (defn edit-and-submit-form
-  ""
+  "Edit entity data presented in form and submit form"
   [window-number
    window-obj]
   (opener-console
@@ -153,7 +154,7 @@
     window-obj))
 
 (defn details-inserted-entity
-  ""
+  "Open details of inserted entity for particular window"
   [window-number
    window-obj]
   (opener-console
@@ -173,7 +174,7 @@
   )
 
 (defn delete-inserted-entity
-  ""
+  "Delete inserted entity from particular window-obj"
   [window-number
    window-obj]
   (opener-console
@@ -193,7 +194,12 @@
   )
 
 (defn test-cases-fn
-  ""
+  "Main test function contains vector of sub-vectors that contain:
+    first element: selector that will be waited for to be loaded
+    second element: execute function that will be executed after selector is loaded
+                      with two parameters: first one is third element of sub-vector
+                                           second one is window-obj
+    third element: is optional and its used as first execute function parameter"
   [window-obj]
   (let [window-number (aget
                         window-obj
@@ -238,7 +244,7 @@
   )
 
 (defn run-test
-  ""
+  "Runs tests from test-cases-fn function in particular window"
   []
   (ctest/run-tests
     test-cases-fn
