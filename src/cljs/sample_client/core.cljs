@@ -1,10 +1,11 @@
 (ns sample-client.core
- (:require [ajax-lib.core :refer [ajax]]
-           [sample-client.login.controller :refer [redirect-to-login
-                                                   main-page
-                                                   logout]]))
+  (:require [ajax-lib.core :refer [ajax]]
+            [sample-client.login.controller :refer [redirect-to-login
+                                                    main-page
+                                                    logout]]))
 
-(def am-i-logged-in-url "/clojure/am-i-logged-in")
+(def am-i-logged-in-url
+     "/clojure/am-i-logged-in")
 
 
 
