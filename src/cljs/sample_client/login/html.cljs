@@ -3,6 +3,7 @@
                                       input div a nav]]
             [ajax-lib.core :refer [ajax get-response]]
             [js-lib.core :as md]
+            [framework-lib.core :refer [popup-fn]]
             [sample-client.test-bot :refer [run-test]]
             [sample-client.person.controller :as pc]
             [sample-client.user.controller :as uc]))
@@ -90,9 +91,16 @@
          ""
          {:type "button"
           :value "Test"}
-         {:onclick {:evt-fn run-test}})]
-      ))
- )
+         {:onclick {:evt-fn run-test}})
+       (input
+         ""
+         {:type "button"
+          :value "Popup"}
+         {:onclick {:evt-fn popup-fn
+                    :evt-p {:content "Try again later"
+                            :heading "Information"}}
+          })])
+   ))
 
 (defn nav-fn
   "Header navigation menu"

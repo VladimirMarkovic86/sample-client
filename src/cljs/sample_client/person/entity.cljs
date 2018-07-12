@@ -121,10 +121,11 @@
 
 (def query
      {:entity-type  entity-type
-      :entity-filter  {}
-      :projection  (:projection columns)
+      :entity-filter {}
+      :projection (:projection columns)
       :projection-include  true
-      :qsort  {:first-name 1}
+      :qsort {:first-name 1}
+      :search [:first-name :last-name :email]
       :pagination  true
       :current-page  0
       :rows  25

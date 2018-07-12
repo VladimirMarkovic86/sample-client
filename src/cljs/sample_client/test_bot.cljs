@@ -13,7 +13,9 @@
    window-obj]
   (opener-console
     window-obj
-    "fill-out-and-submit-form")
+    (str
+      window-number
+      " fill-out-and-submit-form"))
   (let [document (aget window-obj "document")
         first-name (md/query-selector-on-element
                      document
@@ -80,7 +82,9 @@
    window-obj]
   (opener-console
     window-obj
-    "edit-inserted-entity")
+    (str
+      window-number
+      " edit-inserted-entity"))
   (let [td (md/query-selector-on-element
              (aget window-obj "document")
              (str
@@ -100,7 +104,9 @@
    window-obj]
   (opener-console
     window-obj
-    "edit-and-submit-form")
+    (str
+      window-number
+      " edit-and-submit-form"))
   (let [document (aget window-obj "document")
         last-name (md/query-selector-on-element
                     document
@@ -159,7 +165,9 @@
    window-obj]
   (opener-console
     window-obj
-    "details-inserted-entity")
+    (str
+      window-number
+      " details-inserted-entity"))
   (let [td (md/query-selector-on-element
              (aget window-obj "document")
              (str
@@ -179,7 +187,9 @@
    window-obj]
   (opener-console
     window-obj
-    "delete-inserted-entity")
+    (str
+      window-number
+      " delete-inserted-entity"))
   (let [td (md/query-selector-on-element
              (aget window-obj "document")
              (str
@@ -191,7 +201,7 @@
     (click-elem
       delete-btn
       window-obj))
-  )
+ )
 
 (defn test-cases-fn
   "Main test function contains vector of sub-vectors that contain:
@@ -233,20 +243,21 @@
        [".entity"
         click-elem
         "#btnEdit"]
-       [".entity"
+       ["#btnUpdate"
         edit-and-submit-form
         window-number]
        [".entities"
         delete-inserted-entity
         window-number]
        [".entities"
-        close-window]]))
-  )
+        close-window
+        window-number]]))
+ )
 
 (defn run-test
   "Runs tests from test-cases-fn function in particular window"
   []
   (ctest/run-tests
     test-cases-fn
-    19))
+    25))
 

@@ -2,6 +2,7 @@
   (:require [ajax-lib.core :refer [ajax get-response]]
             [js-lib.core :as md]
             [utils-lib.core :as utils]
+            [framework-lib.core :as frm]
             [sample-client.login.html :as lhtml]
             [sample-client.sign-up.controller :as suc]))
 
@@ -161,12 +162,24 @@
   (redirect-to-login
     logout-fn))
 
+(defn logout-error
+  ""
+  [xhr]
+  (let [response (get-response xhr)
+        message (:message response)
+        status (:status response)]
+    (frm/popup-fn
+      {:heading status
+       :content message}))
+ )
+
 (defn logout
   "Logout"
   [& optional]
   (ajax
     {:url logout-url
      :success-fn logout-success
+     :error-fn logout-error
      :entity {:user "Bye"}
      :logout-fn logout}))
 

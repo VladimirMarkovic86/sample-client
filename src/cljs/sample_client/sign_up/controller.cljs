@@ -1,11 +1,23 @@
 (ns sample-client.sign-up.controller
   (:require [ajax-lib.core :refer [ajax get-response]]
             [utils-lib.core :as utils]
+            [framework-lib.core :as frm]
             [js-lib.core :as md]
             [sample-client.sign-up.html :as suh]))
 
 (def sign-up-url
      "/clojure/sign-up")
+
+(defn sign-up-error
+  ""
+  [xhr]
+  (let [response (get-response xhr)
+        message (:message response)
+        status (:status response)]
+    (frm/popup-fn
+      {:heading status
+       :content message}))
+ )
 
 (defn sign-up-evt
   "Read data from sign up page and submit form"
@@ -38,6 +50,7 @@
             (ajax
               {:url sign-up-url
                :success-fn cancel-fn
+               :error-fn sign-up-error
                :entity {:entity-type "user"
                         :entity {:username username
                                  :password (utils/encrypt-password
@@ -46,7 +59,7 @@
                         :_id ""}})
             (.log js/console "Validation failed"))
          ))
-      }})
+     }})
 
 (defn sign-up-evt-fn
   "Sign up form with cancel events"
