@@ -6,6 +6,17 @@
                                           opener-console]]
             [utils-lib.core :as utils]))
 
+(def user-agent
+     (let [user-agent (aget js/navigator "userAgent")
+           chrome (.indexOf
+                    user-agent
+                    "Chrome")]
+       (if (< -1
+              chrome)
+         "c"
+         "m"))
+ )
+
 (defn fill-out-and-submit-form
   "Fills out person form and submits it
    and window-number is used as prefix for every text parameter"
@@ -39,6 +50,7 @@
       first-name
       (str
         window-number
+        user-agent
         "firstNameTest"))
     (md/set-value
       last-name
@@ -76,6 +88,26 @@
     "#btnInsert"
     window-obj))
 
+(defn search-for-entity
+  ""
+  [window-number
+   window-obj]
+  (let [search-field (md/query-selector-on-element
+                       (aget window-obj "document")
+                       "#txtSearchTable")
+        search-value (str
+                       window-number
+                       user-agent
+                       "firstNameTest")]
+    (md/set-value
+      search-field
+      search-value)
+    (md/dispatch-event
+      "keyup"
+      search-field
+      window-obj))
+ )
+
 (defn edit-inserted-entity
   "Open edit form for particular entity"
   [window-number
@@ -90,6 +122,7 @@
              (str
                "td[title='"
                window-number
+               user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
         edit-btn (md/query-selector-on-element tr "input[value='edit']")]
@@ -173,6 +206,7 @@
              (str
                "td[title='"
                window-number
+               user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
         details-btn (md/query-selector-on-element tr "input[value='details']")]
@@ -195,6 +229,7 @@
              (str
                "td[title='"
                window-number
+               user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
         delete-btn (md/query-selector-on-element tr "input[value='delete']")]
@@ -225,19 +260,40 @@
        [".entity"
         fill-out-and-submit-form
         window-number]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [(str
+          "td[title='"
+          window-number
+          user-agent
+          "firstNameTest']")
         edit-inserted-entity
         window-number]
        [".entity"
         edit-and-submit-form
         window-number]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [(str
+          "td[title='"
+          window-number
+          user-agent
+          "firstNameTest']")
         details-inserted-entity
         window-number]
        [".entity"
         click-elem
         "#btnCancel"]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [(str
+          "td[title='"
+          window-number
+          user-agent
+          "firstNameTest']")
         details-inserted-entity
         window-number]
        [".entity"
@@ -246,7 +302,14 @@
        ["#btnUpdate"
         edit-and-submit-form
         window-number]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [(str
+          "td[title='"
+          window-number
+          user-agent
+          "firstNameTest']")
         delete-inserted-entity
         window-number]
        [".entities"
@@ -258,6 +321,5 @@
   "Runs tests from test-cases-fn function in particular window"
   []
   (ctest/run-tests
-    test-cases-fn
-    25))
+    test-cases-fn))
 
