@@ -120,15 +120,14 @@
        })
 
 (def query
-     {:entity-type  entity-type
+     {:entity-type entity-type
       :entity-filter {}
       :projection (:projection columns)
-      :projection-include  true
+      :projection-include true
       :qsort {:first-name 1}
-      :search [:first-name :last-name :email]
-      :pagination  true
-      :current-page  0
-      :rows  25
+      :pagination true
+      :current-page 0
+      :rows 25
       :collation {:locale "sr"}})
 
 (def table-conf
@@ -136,6 +135,8 @@
       :columns columns
       :form-conf form-conf
       :actions #{:details :edit :delete}
+      :search-on true
+      :search-fields [:first-name :last-name :email]
       :render-in ".content"
       :table-class "entities"
       :table-fn gen-table})

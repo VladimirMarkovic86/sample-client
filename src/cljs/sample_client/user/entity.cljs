@@ -66,6 +66,8 @@
       :columns columns
       :form-conf form-conf
       :actions #{:details :delete}
+      :search-on true
+      :search-fields [:username :email]
       :render-in ".content"
       :table-class "entities"
       :table-fn gen-table})
