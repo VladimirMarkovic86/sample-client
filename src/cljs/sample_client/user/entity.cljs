@@ -12,14 +12,11 @@
      {:id :_id
       :type entity-type
       :fields {:username {:label "Username"
-                           :field-type "input"
-                           :data-type "text"}
+                           :input-el "text"}
                :password {:label "Password"
-                          :field-type "input"
-                          :data-type "password"}
+                          :input-el "password"}
                :email {:label "Email"
-                       :field-type "input"
-                       :data-type "email"}}
+                       :input-el "email"}}
       :fields-order [:username
                      :password
                      :email]})
@@ -65,7 +62,7 @@
      {:query query
       :columns columns
       :form-conf form-conf
-      :actions #{:details :delete}
+      :actions [:details :edit :delete]
       :search-on true
       :search-fields [:username :email]
       :render-in ".content"
