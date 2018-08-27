@@ -25,6 +25,7 @@ input[type="date"] {
  border-style: solid;
  color: blue;
  width: 130px;
+ box-shadow: none;
 }
 
 input[type="button"] {
@@ -57,12 +58,18 @@ a:hover {
 }
 
 .header nav {
- float: right;
- margin-top: 5px;
+ display: grid;
+ pointer: default;
 }
 
 .header nav a {
  margin-right: 5px;
+ background-color: red;
+ padding: 3px 3px 3px 5px;
+}
+
+.header nav:hover a {
+ z-index: 1;
 }
 
 .footer {
@@ -163,5 +170,9 @@ a:hover {
 
 .signUp td:nth-child(1){
  text-align: right;
+}
+
+td.validationMessage {
+ color: red;
 }
 

@@ -1,7 +1,7 @@
-(ns sample-client.person.html
+(ns sample-client.language.html
   (:require [htmlcss-lib.core :refer [gen div a]]
             [framework-lib.core :refer [create-entity gen-table]]
-            [sample-client.person.entity :refer [table-conf]]
+            [sample-client.language.entity :refer [table-conf]]
             [language-lib.core :refer [get-label]]))
 
 (defn nav

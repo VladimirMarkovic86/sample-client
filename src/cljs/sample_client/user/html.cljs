@@ -1,7 +1,8 @@
 (ns sample-client.user.html
   (:require [htmlcss-lib.core :refer [gen div a]]
             [framework-lib.core :refer [create-entity gen-table]]
-            [sample-client.user.entity :refer [table-conf]]))
+            [sample-client.user.entity :refer [table-conf]]
+            [language-lib.core :refer [get-label]]))
 
 (defn nav
   "Generate ul HTML element
@@ -10,7 +11,7 @@
   (gen
     [(div
        (a
-         "Show all"
+         (get-label 5)
          nil
          {:onclick {:evt-fn gen-table
                     :evt-p table-conf}}))]

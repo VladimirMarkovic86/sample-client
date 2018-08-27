@@ -7,8 +7,6 @@
 (def am-i-logged-in-url
      "/clojure/am-i-logged-in")
 
-
-
 (defn am-i-logged-in
   "Check if session is active"
   []

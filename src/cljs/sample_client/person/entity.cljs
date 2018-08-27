@@ -1,9 +1,10 @@
 (ns sample-client.person.entity
- (:require [htmlcss-lib.core :refer [gen crt]]
-           [js-lib.core :as md]
-           [framework-lib.core :refer [gen-table]]
-           [utils-lib.core :refer [round-decimals]]
-           [cljs.reader :as reader]))
+  (:require [htmlcss-lib.core :refer [gen crt]]
+            [js-lib.core :as md]
+            [framework-lib.core :refer [gen-table]]
+            [utils-lib.core :refer [round-decimals]]
+            [cljs.reader :as reader]
+            [language-lib.core :refer [get-label]]))
 
 (def entity-type
      "person")
@@ -11,33 +12,44 @@
 (def form-conf
      {:id :_id
       :type entity-type
-      :fields {:first-name {:label "First name"
-                            :input-el "text"}
-               :last-name {:label "Last name"
-                           :input-el "text"}
-               :email {:label "Email"
-                       :input-el "text"}
-               :height {:label "Height"
+      :entity-name (get-label 22)
+      :fields {:first-name {:label (get-label 27)
+                            :input-el "text"
+                            :attrs {:required "required"}}
+               :last-name {:label (get-label 28)
+                           :input-el "text"
+                           :attrs {:required "required"}}
+               :email {:label (get-label 14)
+                       :input-el "email"
+                       :attrs {:required "required"}}
+               :height {:label (get-label 29)
                         :input-el "number"
-                        :attrs {:step "0.1"}}
-               :weight {:label "Weight"
+                        :attrs {:step "0.1"
+                                :required "required"}}
+               :weight {:label (get-label 30)
                         :input-el "number"
-                        :attrs {:step "0.1"}}
-               :birthday {:label "Birthday"
-                          :input-el "date"}
-               :gender {:label "Gender"
+                        :attrs {:step "0.1"
+                                :required "required"}}
+               :birthday {:label (get-label 31)
+                          :input-el "date"
+                          :attrs {:required "required"}}
+               :gender {:label (get-label 32)
                         :input-el "radio"
-                        :options ["Male" "Female"]}
-               :diet {:label "Diet"
+                        :options ["Male" "Female"]
+                        :attrs {:required "required"}}
+               :diet {:label (get-label 33)
                       :input-el "radio"
-                      :options ["All" "Vegetarian"]}
-               :activity {:label "Activity"
+                      :options ["All" "Vegetarian"]
+                      :attrs {:required "required"}}
+               :activity {:label (get-label 34)
                           :input-el "radio"
                           :options ["Mainly sitting"
                                     "Easy physical labor"
                                     "Medium physical labor"
                                     "Hard physical labor"
-                                    "Very hard physical labor"]}}
+                                    "Very hard physical labor"]
+                          :attrs {:required "required"}}
+               }
       :fields-order [:first-name
                      :last-name
                      :email
@@ -61,50 +73,50 @@
                    ]
       :style
        {:first-name
-         {:content "First name"
+         {:content (get-label 27)
           :th {:style {:width "100px"}}
           :td {:style {:width "100px"
                        :text-align "left"}}
           }
         :last-name
-         {:content "Last name"
+         {:content (get-label 28)
           :th {:style {:width "100px"}}
           :td {:style {:width "100px"
                        :text-align "left"}}
           }
         :email
-         {:content "e-mail"
+         {:content (get-label 14)
           :th {:style {:width "100px"}}
           :td {:style {:width "100px"
                        :text-align "left"}}
           }
         :height
-         {:content "Height"
+         {:content (get-label 29)
           :th {:style {:width "65px"}}
           :td {:style {:width "65px"}}
           }
         :weight
-         {:content "Weight"
+         {:content (get-label 30)
           :th {:style {:width "65px"}}
           :td {:style {:width "65px"}}
           }
         :birthday
-         {:content "Birthday"
+         {:content (get-label 31)
           :th {:style {:width "100px"}}
           :td {:style {:width "100px"}}
           }
         :gender
-         {:content "Gender"
+         {:content (get-label 32)
           :th {:style {:width "65px"}}
           :td {:style {:width "65px"}}
           }
         :diet
-         {:content "Diet"
+         {:content (get-label 33)
           :th {:style {:width "40px"}}
           :td {:style {:width "40px"}}
           }
         :activity
-         {:content "Activity"
+         {:content (get-label 34)
           :th {:style {:width "40px"}}
           :td {:style {:width "40px"}}
           }}

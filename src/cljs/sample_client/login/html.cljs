@@ -6,7 +6,9 @@
             [framework-lib.core :refer [popup-fn]]
             [sample-client.test-bot :refer [run-test]]
             [sample-client.person.controller :as pc]
-            [sample-client.user.controller :as uc]))
+            [sample-client.user.controller :as uc]
+            [sample-client.language.controller :as lc]
+            [language-lib.core :refer [get-label]]))
 
 (defn form
   "Generate table HTML element that contains login form"
@@ -17,7 +19,7 @@
       [(tr
          [(td
             (label
-              "email"
+              (get-label 14)
               {:for "txtEmailId"}))
           (td
             (input
@@ -30,7 +32,7 @@
        (tr
          [(td
             (label
-              "password"
+              (get-label 15)
               {:for "pswLoginId"}))
           (td
             (input
@@ -43,7 +45,7 @@
        (tr
          [(td
             (label
-              "remember me"
+              (get-label 16)
               {:for "chkRememberMeId"}))
           (td
             (input
@@ -59,14 +61,14 @@
               {:id "btnLoginId"
                :name "btnLoginN"
                :type "button"
-               :value "Login"}
+               :value (get-label 17)}
               login-evt))]
         )
        (tr
          [(td)
           (td
             (a
-              "Sign up"
+              (get-label 18)
               {:id "aSignUpId"
                :style
                  {:float "right"}}
@@ -106,20 +108,32 @@
   "Header navigation menu"
   [logout-fn]
   (nav
-    [(a
-       "Home"
+    [(div
+       "Vladimir Markovic"
+       {:style {:white-space "pre"
+                :text-overflow "ellipsis"
+                :width "auto"
+                :overflow "hidden"
+                :height "25px"
+                :padding-top "5px"}})
+     (a
+       (get-label 3)
        {:id "aHomeId"}
        {:onclick {:evt-fn home-fn}})
      (a
-       "User"
+       (get-label 21)
        {:id "aUserId"}
        {:onclick {:evt-fn uc/nav-link}})
      (a
-       "Person"
+       (get-label 22)
        {:id "aPersonId"}
        {:onclick {:evt-fn pc/nav-link}})
      (a
-       "Log out"
+       (get-label 23)
+       {:id "aLanguageId"}
+       {:onclick {:evt-fn lc/nav-link}})
+     (a
+       (get-label 2)
        {:id "aLogoutId"}
        {:onclick {:evt-fn logout-fn}})])
  )
@@ -129,8 +143,12 @@
   [logout-fn]
   (gen
     [(div
-       (nav-fn
-         logout-fn)
+       (div
+         (nav-fn
+           logout-fn)
+         {:style {:float "right"
+                  :width "200px"
+                  :height "30px"}})
        {:class "header"})
      (div
        ""
