@@ -106,16 +106,12 @@
 
 (defn nav-fn
   "Header navigation menu"
-  [logout-fn]
+  [logout-fn
+   username]
   (nav
     [(div
-       "Vladimir Markovic"
-       {:style {:white-space "pre"
-                :text-overflow "ellipsis"
-                :width "auto"
-                :overflow "hidden"
-                :height "25px"
-                :padding-top "5px"}})
+       username
+       {:class "dropDownMenu"})
      (a
        (get-label 3)
        {:id "aHomeId"}
@@ -138,17 +134,47 @@
        {:onclick {:evt-fn logout-fn}})])
  )
 
+(defn language-fn
+  ""
+  [change-language-fn
+   language-name]
+  (div
+    [(div
+       language-name
+       {:class "languageDropDownMenu"})
+     (a
+       "English"
+       {:id "aEnglishId"}
+       {:onclick {:evt-fn change-language-fn
+                  :evt-p {:language :english
+                          :language-name "English"}}})
+     (a
+       "Srpski"
+       {:id "aSerbianId"}
+       {:onclick {:evt-fn change-language-fn
+                  :evt-p {:language :serbian
+                          :language-name "Srpski"}}
+        })])
+ )
+
 (defn template
   "Template of main page"
-  [logout-fn]
+  [logout-fn
+   username
+   change-language-fn
+   language-name]
   (gen
     [(div
-       (div
-         (nav-fn
-           logout-fn)
-         {:style {:float "right"
-                  :width "200px"
-                  :height "30px"}})
+       [(div
+          (nav-fn
+            logout-fn
+            username)
+          {:class "dropDownMenuContainer"})
+        (div
+          (language-fn
+            change-language-fn
+            language-name)
+          {:class "languageDropDownMenuContainer"})]
        {:class "header"})
      (div
        ""
