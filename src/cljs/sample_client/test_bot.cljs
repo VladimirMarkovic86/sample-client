@@ -89,7 +89,7 @@
     window-obj))
 
 (defn search-for-entity
-  ""
+  "Enter value in search input field"
   [window-number
    window-obj]
   (let [search-field (md/query-selector-on-element

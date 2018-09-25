@@ -7,7 +7,7 @@
      "person")
 
 (defn form-conf-fn
-  ""
+  "Form configuration for person entity"
   []
   {:id :_id
    :type entity-type
@@ -60,7 +60,7 @@
                   :activity]})
 
 (defn columns-fn
-  ""
+  "Table columns for person entity"
   []
   {:projection [:first-name
                 :last-name
@@ -124,7 +124,7 @@
     })
 
 (defn query-fn
-  ""
+  "Table query for person entity"
   []
   {:entity-type entity-type
    :entity-filter {}
@@ -137,7 +137,7 @@
    :collation {:locale "sr"}})
 
 (defn table-conf-fn
-  ""
+  "Table configuration for person entity"
   []
   {:query (query-fn)
    :columns (columns-fn)
