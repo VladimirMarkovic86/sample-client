@@ -1,4 +1,4 @@
-# server
+# Sample client
 
 Sample client
 
