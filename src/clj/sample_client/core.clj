@@ -20,7 +20,7 @@
       nil
       1613
       {:keystore-file-path
-        "/home/vladimir/workspace/certificate/jks/sample_client.jks"
+        "certificate/sample_client.jks"
        :keystore-password
         "ultras12"})
     (catch Exception e
