@@ -20,6 +20,8 @@
   :resource-paths ["resources"]
   :source-paths ["src/clj"]
   :main ^:skip-aot sample-client.core
+  :target-path "target/%s"
+  :profiles {:uberjar {:aot :all}}
   
   :plugins [[lein-cljsbuild  "1.1.7"]
             ]
