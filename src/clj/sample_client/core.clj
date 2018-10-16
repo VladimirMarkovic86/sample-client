@@ -19,7 +19,7 @@
     (srvr/start-server
       routing-not-found
       nil
-      80
+      443
       {:keystore-file-path
         "certificate/sample_client.jks"
        :keystore-password
