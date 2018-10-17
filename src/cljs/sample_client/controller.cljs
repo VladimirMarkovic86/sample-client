@@ -17,7 +17,7 @@
   []
   (reset!
     base-url
-    "https://sample:1603")
+    "https://sample-server-clj.herokuapp.com")
   (reset!
     with-credentials
     true)

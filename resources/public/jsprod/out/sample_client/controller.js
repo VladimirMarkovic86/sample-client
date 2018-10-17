@@ -12,7 +12,7 @@ goog.require('common_client.login.controller');
  * Check if session is active
  */
 sample_client.controller.am_i_logged_in = (function sample_client$controller$am_i_logged_in(){
-cljs.core.reset_BANG_(ajax_lib.core.base_url,"https://sample:1603");
+cljs.core.reset_BANG_(ajax_lib.core.base_url,"https://sample-server-clj.herokuapp.com");
 
 cljs.core.reset_BANG_(ajax_lib.core.with_credentials,true);
 
