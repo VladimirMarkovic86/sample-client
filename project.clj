@@ -15,6 +15,7 @@
                  [org.clojars.vladimirmarkovic86/sample-middle "0.1.0"]
                  [org.clojars.vladimirmarkovic86/common-client "0.1.0"]
                  [org.clojars.vladimirmarkovic86/server-lib "0.1.0"]
+                 [environ "1.0.0"]
                  ]
 
   :min-lein-version "2.0.0"
@@ -24,6 +25,9 @@
   :main ^:skip-aot sample-client.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
+  
+  :plugins [[environ/environ.lein "0.3.1"]]
+  :hooks [environ.leiningen.hooks]
   
   :plugins [[lein-cljsbuild  "1.1.7"]
             ]
