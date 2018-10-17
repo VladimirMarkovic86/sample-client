@@ -20,7 +20,7 @@
       routing-not-found
       nil
       5000
-      {:keystore-file-path
+      #_{:keystore-file-path
         "certificate/sample_client.jks"
        :keystore-password
         "ultras12"})
