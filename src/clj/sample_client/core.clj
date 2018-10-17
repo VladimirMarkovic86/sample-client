@@ -17,11 +17,11 @@
   "Start server"
   []
   (try
-    (println (env :port))
     (srvr/start-server
       routing-not-found
       nil
-      (or (env :port)
+      (or (read-string
+            (env :port))
           1613)
       #_{:keystore-file-path
         "certificate/sample_client.jks"
