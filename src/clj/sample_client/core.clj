@@ -17,6 +17,7 @@
   "Start server"
   []
   (try
+    (println (env :port))
     (srvr/start-server
       routing-not-found
       nil
