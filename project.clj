@@ -26,10 +26,10 @@
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}}
   
-  :plugins [[environ/environ.lein "0.3.1"]]
   :hooks [environ.leiningen.hooks]
   
-  :plugins [[lein-cljsbuild  "1.1.7"]
+  :plugins [[environ/environ.lein "0.3.1"]
+            [lein-cljsbuild  "1.1.7"]
             ]
 
   :cljsbuild
