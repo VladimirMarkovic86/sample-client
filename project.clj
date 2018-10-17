@@ -22,9 +22,9 @@
   
   :resource-paths ["resources"]
   :source-paths ["src/clj"]
-  :main ^:skip-aot sample-client.core
-  :target-path "target/%s"
-  :profiles {:uberjar {:aot :all}}
+    
+  :uberjar-name "sample-client-standalone.jar"
+  :profiles {:production {:env {:production true}}}
   
   :hooks [environ.leiningen.hooks]
   
