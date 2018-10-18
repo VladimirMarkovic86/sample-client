@@ -18,6 +18,7 @@
   []
   (try
     (doseq [[e-key e-value] (System/getProperties)] (println e-key " " e-value))
+    (doseq [[e-key e-value] (System/getenv)] (println e-key " " e-value))
     (srvr/start-server
       routing-not-found
       nil
