@@ -21,11 +21,7 @@
       nil
       (or (read-string
             (System/getenv "PORT"))
-          1613)
-      #_{:keystore-file-path
-        "certificate/sample_client.jks"
-       :keystore-password
-        "ultras12"})
+          1613))
     (catch Exception e
       (println (.getMessage e))
      ))
