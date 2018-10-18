@@ -15,21 +15,19 @@
                  [org.clojars.vladimirmarkovic86/sample-middle "0.1.0"]
                  [org.clojars.vladimirmarkovic86/common-client "0.1.0"]
                  [org.clojars.vladimirmarkovic86/server-lib "0.1.0"]
-                 [environ "1.0.0"]
                  ]
 
   :min-lein-version "2.0.0"
   
   :resource-paths ["resources"]
   :source-paths ["src/clj"]
-    
+  
+  :main ^:skip-aot sample-client.core
+  
   :uberjar-name "sample-client-standalone.jar"
   :profiles {:production {:env {:production true}}}
-  
-  :hooks [environ.leiningen.hooks]
-  
-  :plugins [[environ/environ.lein "0.3.1"]
-            [lein-cljsbuild  "1.1.7"]
+    
+  :plugins [[lein-cljsbuild  "1.1.7"]
             ]
 
   :cljsbuild

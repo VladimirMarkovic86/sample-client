@@ -3,8 +3,7 @@
   (:require [ajax-lib.http.status-code :as stc]
             [ajax-lib.http.mime-type :as mt]
             [ajax-lib.http.entity-header :as eh]
-            [server-lib.core :as srvr]
-            [environ.core :refer [env]]))
+            [server-lib.core :as srvr]))
 
 (defn routing-not-found
   "Default routing if file is not found"
@@ -23,7 +22,9 @@
       routing-not-found
       nil
       (or (read-string
-            (env :port))
+            (get
+              (System/getenv)
+              "PORT"))
           1613)
       #_{:keystore-file-path
         "certificate/sample_client.jks"
