@@ -21,8 +21,7 @@
     (srvr/start-server
       routing-not-found
       nil
-      1613
-      #_(or (read-string
+      (or (read-string
             (get
               (System/getenv)
               "PORT"))
