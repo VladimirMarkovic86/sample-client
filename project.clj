@@ -21,9 +21,7 @@
   
   :resource-paths ["resources"]
   :source-paths ["src/clj"]
-  
-  :main ^:skip-aot sample-client.core
-  
+    
   :uberjar-name "sample-client-standalone.jar"
   :profiles {:production {:env {:production true}}}
     
