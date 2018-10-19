@@ -1,4 +1,4 @@
-(defproject org.clojars.vladimirmarkovic86/sample-client "0.1.0"
+(defproject org.clojars.vladimirmarkovic86/sample-client "0.2.0"
   :description "Sample client"
   :url "http://github.com/VladimirMarkovic86/sample-client"
   :license {:name "Eclipse Public License"
@@ -8,12 +8,12 @@
                  [org.clojars.vladimirmarkovic86/ajax-lib "0.1.0"]
                  [org.clojars.vladimirmarkovic86/htmlcss-lib "0.1.0"]
                  [org.clojars.vladimirmarkovic86/js-lib "0.1.0"]
-                 [org.clojars.vladimirmarkovic86/framework-lib "0.1.0"]
+                 [org.clojars.vladimirmarkovic86/framework-lib "0.2.0"]
                  [org.clojars.vladimirmarkovic86/utils-lib "0.1.0"]
                  [org.clojars.vladimirmarkovic86/client-test-lib "0.1.0"]
-                 [org.clojars.vladimirmarkovic86/language-lib "0.1.0"]
+                 [org.clojars.vladimirmarkovic86/language-lib "0.2.0"]
                  [org.clojars.vladimirmarkovic86/sample-middle "0.1.0"]
-                 [org.clojars.vladimirmarkovic86/common-client "0.1.0"]
+                 [org.clojars.vladimirmarkovic86/common-client "0.2.0"]
                  [org.clojars.vladimirmarkovic86/server-lib "0.1.0"]
                  ]
 
