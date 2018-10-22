@@ -19,7 +19,9 @@
     (srvr/start-server
       routing-not-found
       nil
-      1613
+      (or (read-string
+            (System/getenv "PORT"))
+          1613)
       {:keystore-file-path
         "certificate/sample_client.jks"
        :keystore-password
