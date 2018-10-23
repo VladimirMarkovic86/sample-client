@@ -20,15 +20,18 @@
           port (if port
                  (read-string
                    port)
-                 1613)]
+                 1613)
+          certificates {:keystore-file-path
+                         "certificate/sample_client.jks"
+                        :keystore-password
+                         "ultras12"}
+          certificates (when-not (System/getenv "CERTIFICATES")
+                         certificates)]
       (srvr/start-server
         routing-not-found
         nil
         port
-        {:keystore-file-path
-          "certificate/sample_client.jks"
-         :keystore-password
-          "ultras12"}))
+        certificates))
     (catch Exception e
       (println (.getMessage e))
      ))
