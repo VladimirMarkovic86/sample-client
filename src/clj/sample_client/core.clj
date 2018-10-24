@@ -26,7 +26,14 @@
                         :keystore-password
                          "ultras12"}
           certificates (when-not (System/getenv "CERTIFICATES")
-                         certificates)]
+                         certificates)
+          thread-pool-size (System/getenv "THREAD_POOL_SIZE")]
+      (when thread-pool-size
+        (reset!
+          srvr/thread-pool-size
+          (read-string
+            thread-pool-size))
+       )
       (srvr/start-server
         routing-not-found
         nil
