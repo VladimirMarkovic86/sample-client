@@ -14,19 +14,19 @@
                  [org.clojars.vladimirmarkovic86/language-lib "0.2.0"]
                  [org.clojars.vladimirmarkovic86/sample-middle "0.1.0"]
                  [org.clojars.vladimirmarkovic86/common-client "0.2.0"]
-                 [org.clojars.vladimirmarkovic86/server-lib "0.3.0"]
+                 [org.clojars.vladimirmarkovic86/server-lib "0.3.1"]
                  ]
 
   :min-lein-version "2.0.0"
   
   :resource-paths ["resources"]
-  :source-paths ["src/clj"]
+  :source-paths ["src/clj" "src/cljs"]
   
   :main ^:skip-aot sample-client.core
   
   :uberjar-name "sample-client-standalone.jar"
   :profiles {:uberjar {:aot :all}}
-  
+
   :plugins [[lein-cljsbuild  "1.1.7"]
             ]
 
