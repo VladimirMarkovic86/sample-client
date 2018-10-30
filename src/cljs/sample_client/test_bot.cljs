@@ -316,7 +316,7 @@
           "firstNameTest']")
         delete-inserted-entity
         window-number]
-       ["#txtSearchTable"
+       ["div.afterDelete"
         search-for-entity
         window-number]
        [".noResults"
