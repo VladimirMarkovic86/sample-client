@@ -23,7 +23,6 @@
   [window-number
    window-obj]
   (opener-console
-    window-obj
     (str
       window-number
       " fill-out-and-submit-form"))
@@ -113,7 +112,6 @@
   [window-number
    window-obj]
   (opener-console
-    window-obj
     (str
       window-number
       " edit-inserted-entity"))
@@ -138,7 +136,6 @@
   [window-number
    window-obj]
   (opener-console
-    window-obj
     (str
       window-number
       " edit-and-submit-form"))
@@ -199,7 +196,6 @@
   [window-number
    window-obj]
   (opener-console
-    window-obj
     (str
       window-number
       " details-inserted-entity"))
@@ -224,7 +220,6 @@
   [window-number
    window-obj]
   (opener-console
-    window-obj
     (str
       window-number
       " delete-inserted-entity"))
