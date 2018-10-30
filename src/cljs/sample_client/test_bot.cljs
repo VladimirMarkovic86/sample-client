@@ -30,22 +30,22 @@
   (let [document (aget window-obj "document")
         first-name (md/query-selector-on-element
                      document
-                     "#txtFirstname")
+                     "#first-name")
         last-name (md/query-selector-on-element
                     document
-                    "#txtLastname")
+                    "#last-name")
         email (md/query-selector-on-element
                 document
-                "#txtEmail")
+                "#email")
         height (md/query-selector-on-element
                  document
-                 "#txtHeight")
+                 "#height")
         weight (md/query-selector-on-element
                  document
-                 "#txtWeight")
+                 "#weight")
         birthday (md/query-selector-on-element
                    document
-                   "#txtBirthday")]
+                   "#birthday")]
     (md/set-value
       first-name
       (str
@@ -61,7 +61,7 @@
       email
       (str
         window-number
-        "emailTest"))
+        "email@Test"))
     (md/set-value
       height
       (str
@@ -76,13 +76,13 @@
       birthday
       "2018-07-02"))
   (click-elem
-    "#rGenderMale"
+    "#genderMale"
     window-obj)
   (click-elem
-    "#rDietAll"
+    "#dietAll"
     window-obj)
   (click-elem
-    "#rActivityMainlysitting"
+    "#activityMainlysitting"
     window-obj)
   (click-elem
     "#btnInsert"
@@ -125,7 +125,9 @@
                user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
-        edit-btn (md/query-selector-on-element tr "input[value='edit']")]
+        edit-btn (md/query-selector-on-element
+                   tr
+                   "input[class='edit']")]
     (click-elem
       edit-btn
       window-obj))
@@ -143,19 +145,19 @@
   (let [document (aget window-obj "document")
         last-name (md/query-selector-on-element
                     document
-                    "#txtLastname")
+                    "#last-name")
         email (md/query-selector-on-element
                 document
-                "#txtEmail")
+                "#email")
         height (md/query-selector-on-element
                  document
-                 "#txtHeight")
+                 "#height")
         weight (md/query-selector-on-element
                  document
-                 "#txtWeight")
+                 "#weight")
         birthday (md/query-selector-on-element
                    document
-                   "#txtBirthday")]
+                   "#birthday")]
     (md/set-value
       last-name
       (str
@@ -165,7 +167,7 @@
       email
       (str
         window-number
-        "emailTest1"))
+        "email@Test1"))
     (md/set-value
       height
       (str
@@ -180,13 +182,13 @@
       birthday
       "2018-07-02"))
   (click-elem
-    "#rGenderFemale"
+    "#genderFemale"
     window-obj)
   (click-elem
-    "#rDietVegetarian"
+    "#dietVegetarian"
     window-obj)
   (click-elem
-    "#rActivityEasyphysicallabor"
+    "#activityEasyphysicallabor"
     window-obj)
   (click-elem
     "#btnUpdate"
@@ -209,7 +211,9 @@
                user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
-        details-btn (md/query-selector-on-element tr "input[value='details']")]
+        details-btn (md/query-selector-on-element
+                      tr
+                      "input[class='details']")]
     (click-elem
       details-btn
       window-obj))
@@ -232,7 +236,9 @@
                user-agent
                "firstNameTest']"))
         tr (aget td "parentNode")
-        delete-btn (md/query-selector-on-element tr "input[value='delete']")]
+        delete-btn (md/query-selector-on-element
+                     tr
+                     "input[class='delete']")]
     (click-elem
       delete-btn
       window-obj))
