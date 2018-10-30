@@ -255,7 +255,10 @@
       [["#aPersonId"
         click-elem
         "#aPersonId"]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [".noResults"
         click-elem
         "#aCreateId"]
        [".entity"
@@ -313,7 +316,10 @@
           "firstNameTest']")
         delete-inserted-entity
         window-number]
-       [".entities"
+       ["#txtSearchTable"
+        search-for-entity
+        window-number]
+       [".noResults"
         close-window
         window-number]]))
  )
