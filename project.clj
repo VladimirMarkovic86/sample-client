@@ -10,7 +10,7 @@
                  [org.clojars.vladimirmarkovic86/js-lib "0.1.0"]
                  [org.clojars.vladimirmarkovic86/framework-lib "0.2.1"]
                  [org.clojars.vladimirmarkovic86/utils-lib "0.3.0"]
-                 [org.clojars.vladimirmarkovic86/client-test-lib "0.2.0"]
+                 [org.clojars.vladimirmarkovic86/client-test-lib "0.2.1"]
                  [org.clojars.vladimirmarkovic86/language-lib "0.2.0"]
                  [org.clojars.vladimirmarkovic86/sample-middle "0.2.0"]
                  [org.clojars.vladimirmarkovic86/common-client "0.2.0"]
