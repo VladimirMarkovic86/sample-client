@@ -1,10 +1,11 @@
 (ns sample-client.person.entity
   (:require [framework-lib.core :refer [gen-table]]
             [language-lib.core :refer [get-label]]
-            [common-client.allowed-actions.controller :refer [allowed-actions]]))
+            [common-client.allowed-actions.controller :refer [allowed-actions]]
+            [sample-middle.collection-names :refer [person-cname]]))
 
 (def entity-type
-     "person")
+     person-cname)
 
 (defn form-conf-fn
   "Form configuration for person entity"
