@@ -75,13 +75,13 @@
       birthday
       "2018-07-02"))
   (click-elem
-    "#genderMale"
+    "#gendermale"
     window-obj)
   (click-elem
-    "#dietAll"
+    "#dietall"
     window-obj)
   (click-elem
-    "#activityMainlysitting"
+    "#activitymainly_sitting"
     window-obj)
   (click-elem
     "#btnInsert"
@@ -179,13 +179,13 @@
       birthday
       "2018-07-02"))
   (click-elem
-    "#genderFemale"
+    "#genderfemale"
     window-obj)
   (click-elem
-    "#dietVegetarian"
+    "#dietvegetarian"
     window-obj)
   (click-elem
-    "#activityEasyphysicallabor"
+    "#activityeasy_physical_labor"
     window-obj)
   (click-elem
     "#btnUpdate"

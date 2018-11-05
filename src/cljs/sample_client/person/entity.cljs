@@ -35,19 +35,30 @@
                        :attrs {:required "required"}}
             :gender {:label (get-label 1007)
                      :input-el "radio"
-                     :options ["Male" "Female"]
+                     :options [[(get-label 1018)
+                                "male"]
+                               [(get-label 1019)
+                                "female"]]
                      :attrs {:required "required"}}
             :diet {:label (get-label 1008)
                    :input-el "radio"
-                   :options ["All" "Vegetarian"]
+                   :options [[(get-label 1016)
+                              "all"]
+                             [(get-label 1017)
+                              "vegetarian"]]
                    :attrs {:required "required"}}
             :activity {:label (get-label 1009)
                        :input-el "radio"
-                       :options ["Mainly sitting"
-                                 "Easy physical labor"
-                                 "Medium physical labor"
-                                 "Hard physical labor"
-                                 "Very hard physical labor"]
+                       :options [[(get-label 1011)
+                                  "mainly_sitting"]
+                                 [(get-label 1012)
+                                  "easy_physical_labor"]
+                                 [(get-label 1013)
+                                  "medium_physical_labor"]
+                                 [(get-label 1014)
+                                  "hard_physical_labor"]
+                                 [(get-label 1015)
+                                  "very_hard_physical_labor"]]
                        :attrs {:required "required"}}
             }
    :fields-order [:first-name
