@@ -7,7 +7,8 @@
             [utils-lib.core :as utils]))
 
 (def user-agent
-     (let [user-agent (aget js/navigator "userAgent")
+     (let [user-agent (.-userAgent
+                        js/navigator)
            chrome (.indexOf
                     user-agent
                     "Chrome")]
@@ -26,7 +27,8 @@
     (str
       window-number
       " fill-out-and-submit-form"))
-  (let [document (aget window-obj "document")
+  (let [document (.-document
+                   window-obj)
         first-name (md/query-selector-on-element
                      document
                      "#first-name")
@@ -44,7 +46,10 @@
                  "#weight")
         birthday (md/query-selector-on-element
                    document
-                   "#birthday")]
+                   "#birthday")
+        activity-option (md/query-selector-on-element
+                          document
+                          "#activity option:nth-child(2)")]
     (md/set-value
       first-name
       (str
@@ -73,27 +78,30 @@
         "1"))
     (md/set-value
       birthday
-      "2018-07-02"))
-  (click-elem
-    "#gendermale"
-    window-obj)
-  (click-elem
-    "#dietall"
-    window-obj)
-  (click-elem
-    "#activitymainly_sitting"
-    window-obj)
-  (click-elem
-    "#btnInsert"
-    window-obj))
+      "2018-07-02")
+    (click-elem
+      "#gendermale"
+      window-obj)
+    (click-elem
+      "#dietall"
+      window-obj)
+    (aset
+      activity-option
+      "selected"
+      true)
+    (click-elem
+      "#btnInsert"
+      window-obj))
+ )
 
 (defn search-for-entity
   "Enter value in search input field"
   [window-number
    window-obj]
   (let [search-field (md/query-selector-on-element
-                       (aget window-obj "document")
-                       "#txtSearchTable")
+                       (.-document
+                         window-obj)
+                       "#txtSearch")
         search-value (str
                        window-number
                        user-agent
@@ -116,16 +124,18 @@
       window-number
       " edit-inserted-entity"))
   (let [td (md/query-selector-on-element
-             (aget window-obj "document")
+             (.-document
+               window-obj)
              (str
                "td[title='"
                window-number
                user-agent
                "firstNameTest']"))
-        tr (aget td "parentNode")
+        tr (.-parentElement
+             td)
         edit-btn (md/query-selector-on-element
                    tr
-                   "input[class='edit']")]
+                   "td[class*='edit']")]
     (click-elem
       edit-btn
       window-obj))
@@ -139,7 +149,8 @@
     (str
       window-number
       " edit-and-submit-form"))
-  (let [document (aget window-obj "document")
+  (let [document (.-document
+                   window-obj)
         last-name (md/query-selector-on-element
                     document
                     "#last-name")
@@ -154,7 +165,10 @@
                  "#weight")
         birthday (md/query-selector-on-element
                    document
-                   "#birthday")]
+                   "#birthday")
+        activity-option (md/query-selector-on-element
+                          document
+                          "#activity option:nth-child(2)")]
     (md/set-value
       last-name
       (str
@@ -177,19 +191,21 @@
         "2"))
     (md/set-value
       birthday
-      "2018-07-02"))
-  (click-elem
-    "#genderfemale"
-    window-obj)
-  (click-elem
-    "#dietvegetarian"
-    window-obj)
-  (click-elem
-    "#activityeasy_physical_labor"
-    window-obj)
-  (click-elem
-    "#btnUpdate"
-    window-obj))
+      "2018-07-02")
+    (click-elem
+      "#genderfemale"
+      window-obj)
+    (click-elem
+      "#dietvegetarian"
+      window-obj)
+    (aset
+      activity-option
+      "selected"
+      true)
+    (click-elem
+      "#btnUpdate"
+      window-obj))
+ )
 
 (defn details-inserted-entity
   "Open details of inserted entity for particular window"
@@ -200,16 +216,18 @@
       window-number
       " details-inserted-entity"))
   (let [td (md/query-selector-on-element
-             (aget window-obj "document")
+             (.-document
+               window-obj)
              (str
                "td[title='"
                window-number
                user-agent
                "firstNameTest']"))
-        tr (aget td "parentNode")
+        tr (.-parentElement
+             td)
         details-btn (md/query-selector-on-element
                       tr
-                      "input[class='details']")]
+                      "td[class*='details']")]
     (click-elem
       details-btn
       window-obj))
@@ -224,16 +242,18 @@
       window-number
       " delete-inserted-entity"))
   (let [td (md/query-selector-on-element
-             (aget window-obj "document")
+             (.-document
+               window-obj)
              (str
                "td[title='"
                window-number
                user-agent
                "firstNameTest']"))
-        tr (aget td "parentNode")
+        tr (.-parentElement
+             td)
         delete-btn (md/query-selector-on-element
                      tr
-                     "input[class='delete']")]
+                     "td[class*='delete']")]
     (click-elem
       delete-btn
       window-obj))
@@ -247,24 +267,26 @@
                                            second one is window-obj
     third element: is optional and its used as first execute function parameter"
   [window-obj]
-  (let [window-number (aget
-                        window-obj
-                        "name")]
+  (let [window-number (.-name
+                        window-obj)]
     (ctest/execute-vector-when-loaded
       window-obj
-      [["#aPersonId"
+      [["#person-nav-id"
         click-elem
-        "#aPersonId"]
-       ["#txtSearchTable"
+        "#person-nav-id"]
+       ["#person-show-all-nav-id"
+        click-elem
+        "#person-show-all-nav-id"]
+       ["#txtSearch"
         search-for-entity
         window-number]
-       [".noResults"
+       [".no-results"
         click-elem
-        "#aCreateId"]
+        "#person-create-nav-id"]
        [".entity"
         fill-out-and-submit-form
         window-number]
-       ["#txtSearchTable"
+       ["#txtSearch"
         search-for-entity
         window-number]
        [(str
@@ -277,7 +299,7 @@
        [".entity"
         edit-and-submit-form
         window-number]
-       ["#txtSearchTable"
+       ["#txtSearch"
         search-for-entity
         window-number]
        [(str
@@ -290,7 +312,7 @@
        [".entity"
         click-elem
         "#btnCancel"]
-       ["#txtSearchTable"
+       ["#txtSearch"
         search-for-entity
         window-number]
        [(str
@@ -306,7 +328,7 @@
        ["#btnUpdate"
         edit-and-submit-form
         window-number]
-       ["#txtSearchTable"
+       ["#txtSearch"
         search-for-entity
         window-number]
        [(str
@@ -316,10 +338,10 @@
           "firstNameTest']")
         delete-inserted-entity
         window-number]
-       ["div.afterDelete"
+       ["div.after-delete"
         search-for-entity
         window-number]
-       [".noResults"
+       [".no-results"
         close-window
         window-number]]))
  )

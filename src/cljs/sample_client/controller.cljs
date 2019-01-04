@@ -8,6 +8,7 @@
                                                     main-page
                                                     logout
                                                     custom-menu
+                                                    home-page-content
                                                     logout-fn
                                                     logout-success
                                                     logout-success-fn]]))
@@ -22,7 +23,7 @@
                           base-uri
                           "herokuapp"))
                    "https://sample-server-clj.herokuapp.com"
-                   "https://sample:1603")]
+                   "https://192.168.1.86:1603")]
     (reset!
       base-url
       base-uri))
@@ -35,6 +36,9 @@
   (reset!
     custom-menu
     ht/custom-menu)
+  (reset!
+    home-page-content
+    (ht/home-page-content))
   (reset!
     logout-fn
     logout)

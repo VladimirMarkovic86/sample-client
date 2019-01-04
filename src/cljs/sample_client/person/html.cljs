@@ -1,35 +1,34 @@
 (ns sample-client.person.html
-  (:require [htmlcss-lib.core :refer [gen div a]]
-            [framework-lib.core :refer [create-entity gen-table]]
-            [sample-client.person.entity :refer [table-conf-fn]]
-            [language-lib.core :refer [get-label]]
+  (:require [framework-lib.core :refer [create-entity gen-table]]
             [common-client.allowed-actions.controller :refer [allowed-actions]]
+            [language-lib.core :refer [get-label]]
+            [sample-client.person.entity :refer [table-conf-fn]]
             [sample-middle.functionalities :as fns]))
 
 (defn nav
-  "Generate ul HTML element
-   that represents navigation menu"
+  "Returns map of menu item and it's sub items"
   []
-  (gen
-    [(when (contains?
-             @allowed-actions
-             fns/person-create)
-       (div
-         (a
-           (get-label 4)
-           {:id "aCreateId"}
-           {:onclick {:evt-fn create-entity
-                      :evt-p (table-conf-fn)}})
-        ))
-     (when (contains?
-             @allowed-actions
-             fns/person-read)
-       (div
-         (a
-           (get-label 5)
-           {:id "aShowAllId"}
-           {:onclick {:evt-fn gen-table
-                      :evt-p (table-conf-fn)}})
-        ))]
+  (when (or (contains?
+              @allowed-actions
+              fns/person-create)
+            (contains?
+              @allowed-actions
+              fns/person-read))
+    {:label (get-label 1001)
+     :id "person-nav-id"
+     :sub-menu [(when (contains?
+                        @allowed-actions
+                        fns/person-create)
+                  {:label (get-label 4)
+                   :id "person-create-nav-id"
+                   :evt-fn create-entity
+                   :evt-p (table-conf-fn)})
+                (when (contains?
+                        @allowed-actions
+                        fns/person-read)
+                  {:label (get-label 5)
+                   :id "person-show-all-nav-id"
+                   :evt-fn gen-table
+                   :evt-p (table-conf-fn)})]}
    ))
 

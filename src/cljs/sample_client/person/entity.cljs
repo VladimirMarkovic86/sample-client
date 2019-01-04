@@ -7,6 +7,36 @@
 (def entity-type
      person-cname)
 
+(defn gender-labels
+  "Returns gender type property labels"
+  []
+  [[(get-label 1018)
+    "male"]
+   [(get-label 1019)
+    "female"]])
+
+(defn diet-labels
+  "Returns diet type property labels"
+  []
+  [[(get-label 1016)
+    "all"]
+   [(get-label 1017)
+    "vegetarian"]])
+
+(defn activity-labels
+  "Returns activity type property labels"
+  []
+  [[(get-label 1011)
+    "mainly_sitting"]
+   [(get-label 1012)
+    "easy_physical_labor"]
+   [(get-label 1013)
+    "medium_physical_labor"]
+   [(get-label 1014)
+    "hard_physical_labor"]
+   [(get-label 1015)
+    "very_hard_physical_labor"]])
+
 (defn form-conf-fn
   "Form configuration for person entity"
   []
@@ -15,58 +45,47 @@
    :entity-name (get-label 1001)
    :fields {:first-name {:label (get-label 1002)
                          :input-el "text"
-                         :attrs {:required "required"}}
+                         :attrs {:placeholder (get-label 1002)
+                                 :required true}}
             :last-name {:label (get-label 1003)
                         :input-el "text"
-                        :attrs {:required "required"}}
+                        :attrs {:placeholder (get-label 1003)
+                                :required true}}
             :email {:label (get-label 14)
                     :input-el "email"
-                    :attrs {:required "required"}}
+                    :attrs {:placeholder (get-label 14)
+                            :required true}}
             :height {:label (get-label 1004)
                      :input-el "number"
-                     :attrs {:step "0.1"
-                             :required "required"}}
+                     :attrs {:placeholder (get-label 1004)
+                             :step "0.1"
+                             :required true}}
             :weight {:label (get-label 1005)
                      :input-el "number"
-                     :attrs {:step "0.1"
-                             :required "required"}}
+                     :attrs {:placeholder (get-label 1005)
+                             :step "0.1"
+                             :required true}}
             :birthday {:label (get-label 1006)
                        :input-el "date"
-                       :attrs {:required "required"}}
+                       :attrs {:required true}}
             :gender {:label (get-label 1007)
                      :input-el "radio"
-                     :options [[(get-label 1018)
-                                "male"]
-                               [(get-label 1019)
-                                "female"]]
-                     :attrs {:required "required"}}
+                     :options (gender-labels)
+                     :attrs {:required true}}
             :diet {:label (get-label 1008)
                    :input-el "radio"
-                   :options [[(get-label 1016)
-                              "all"]
-                             [(get-label 1017)
-                              "vegetarian"]]
-                   :attrs {:required "required"}}
+                   :options (diet-labels)
+                   :attrs {:required true}}
             :activity {:label (get-label 1009)
-                       :input-el "radio"
-                       :options [[(get-label 1011)
-                                  "mainly_sitting"]
-                                 [(get-label 1012)
-                                  "easy_physical_labor"]
-                                 [(get-label 1013)
-                                  "medium_physical_labor"]
-                                 [(get-label 1014)
-                                  "hard_physical_labor"]
-                                 [(get-label 1015)
-                                  "very_hard_physical_labor"]]
-                       :attrs {:required "required"}}
-            }
+                       :input-el "select"
+                       :attrs {:required true}
+                       :options (activity-labels)}}
    :fields-order [:first-name
                   :last-name
                   :email
+                  :birthday
                   :height
                   :weight
-                  :birthday
                   :gender
                   :diet
                   :activity]})
@@ -87,14 +106,14 @@
    :style
     {:first-name
       {:content (get-label 1002)
-       :th {:style {:width "100px"}}
-       :td {:style {:width "100px"
+       :th {:style {:width "15%"}}
+       :td {:style {:width "15%"
                     :text-align "left"}}
        }
      :last-name
       {:content (get-label 1003)
-       :th {:style {:width "100px"}}
-       :td {:style {:width "100px"
+       :th {:style {:width "15%"}}
+       :td {:style {:width "15%"
                     :text-align "left"}}
        }
      :email
@@ -105,33 +124,42 @@
        }
      :height
       {:content (get-label 1004)
-       :th {:style {:width "65px"}}
-       :td {:style {:width "65px"}}
+       :th {:style {:width "5%"}}
+       :td {:style {:width "5%"}}
        }
      :weight
       {:content (get-label 1005)
-       :th {:style {:width "65px"}}
-       :td {:style {:width "65px"}}
+       :th {:style {:width "5%"}}
+       :td {:style {:width "5%"}}
        }
      :birthday
       {:content (get-label 1006)
-       :th {:style {:width "100px"}}
-       :td {:style {:width "100px"}}
+       :th {:style {:width "20%"}}
+       :td {:style {:width "20%"}}
        }
      :gender
       {:content (get-label 1007)
-       :th {:style {:width "65px"}}
-       :td {:style {:width "65px"}}
+       :th {:style {:width "10%"}}
+       :td {:style {:width "10%"}}
+       :labels (into
+                 #{}
+                 (gender-labels))
        }
      :diet
       {:content (get-label 1008)
        :th {:style {:width "40px"}}
        :td {:style {:width "40px"}}
+       :labels (into
+                 #{}
+                 (diet-labels))
        }
      :activity
       {:content (get-label 1009)
        :th {:style {:width "40px"}}
        :td {:style {:width "40px"}}
+       :labels (into
+                 #{}
+                 (activity-labels))
        }}
     })
 
@@ -145,7 +173,7 @@
    :qsort {:first-name 1}
    :pagination true
    :current-page 0
-   :rows 25
+   :rows 10
    :collation {:locale "sr"}})
 
 (defn table-conf-fn

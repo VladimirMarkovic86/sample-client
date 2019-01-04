@@ -1,27 +1,28 @@
 (ns sample-client.html
-  (:require [htmlcss-lib.core :refer [a]]
+  (:require [htmlcss-lib.core :refer [h2 p]]
             [sample-middle.functionalities :as smfns]
             [common-client.allowed-actions.controller :refer [allowed-actions]]
-            [sample-client.person.controller :as pc]
+            [sample-client.person.html :as ph]
             [sample-client.test-bot :refer [run-test]]
             [language-lib.core :refer [get-label]]))
+
+(defn home-page-content
+  "Home page content"
+  []
+  [(h2
+     (get-label 62))
+   (p
+     (get-label 63))]
+ )
 
 (defn custom-menu
   "Render menu items for user that have privilege for them"
   []
-  [(when (contains?
-           @allowed-actions
-           smfns/person-read)
-     (a
-       (get-label 1001)
-       {:id "aPersonId"}
-       {:onclick {:evt-fn pc/nav-link}}))
+  [(ph/nav)
    (when (contains?
            @allowed-actions
            smfns/test-person-entity)
-     (a
-       (get-label 1010)
-       {:id "aTestPersonId"}
-       {:onclick {:evt-fn run-test}}))]
- )
+     {:label (get-label 1010)
+      :id "test-person-entity-nav-id"
+      :evt-fn run-test})])
 
