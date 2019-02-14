@@ -1,5 +1,6 @@
 (ns sample-client.controller
   (:require [ajax-lib.core :refer [ajax base-url with-credentials]]
+            [websocket-lib.core :refer [base-ws-url]]
             [sample-client.html :as ht]
             [sample-middle.functionalities :as fns]
             [common-middle.request-urls :as rurls]
@@ -30,6 +31,17 @@
   (reset!
     with-credentials
     true)
+  (let [base-ws-uri (.-baseURI
+                      js/document)
+        base-ws-uri (if (< -1
+                           (.indexOf
+                             base-ws-uri
+                             "herokuapp"))
+                      "wss://sample-server-clj.herokuapp.com"
+                      "wss://192.168.1.86:1603")]
+    (reset!
+      base-ws-url
+      base-ws-uri))
   #_(reset!
     base-url
     "/clojure")
