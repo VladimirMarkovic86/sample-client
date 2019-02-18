@@ -2,7 +2,8 @@
   (:require [framework-lib.core :refer [gen-table]]
             [language-lib.core :refer [get-label]]
             [common-client.allowed-actions.controller :refer [allowed-actions]]
-            [sample-middle.collection-names :refer [person-cname]]))
+            [sample-middle.collection-names :refer [person-cname]]
+            [sample-middle.person.entity :as smpe]))
 
 (def entity-type
      person-cname)
@@ -11,31 +12,31 @@
   "Returns gender type property labels"
   []
   [[(get-label 1018)
-    "male"]
+    smpe/gender-male]
    [(get-label 1019)
-    "female"]])
+    smpe/gender-female]])
 
 (defn diet-labels
   "Returns diet type property labels"
   []
   [[(get-label 1016)
-    "all"]
+    smpe/diet-not-vegetarian]
    [(get-label 1017)
-    "vegetarian"]])
+    smpe/diet-vegetarian]])
 
 (defn activity-labels
   "Returns activity type property labels"
   []
   [[(get-label 1011)
-    "mainly_sitting"]
+    smpe/activity-mainly-sitting]
    [(get-label 1012)
-    "easy_physical_labor"]
+    smpe/activity-easy-physical-labor]
    [(get-label 1013)
-    "medium_physical_labor"]
+    smpe/activity-medium-physical-labor]
    [(get-label 1014)
-    "hard_physical_labor"]
+    smpe/activity-hard-physical-labor]
    [(get-label 1015)
-    "very_hard_physical_labor"]])
+    smpe/activity-very-hard-physical-labor]])
 
 (defn form-conf-fn
   "Form configuration for person entity"

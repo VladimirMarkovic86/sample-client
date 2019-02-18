@@ -12,7 +12,7 @@
                  [org.clojars.vladimirmarkovic86/utils-lib "0.4.3"]
                  [org.clojars.vladimirmarkovic86/client-test-lib "0.2.5"]
                  [org.clojars.vladimirmarkovic86/language-lib "0.2.11"]
-                 [org.clojars.vladimirmarkovic86/sample-middle "0.3.5"]
+                 [org.clojars.vladimirmarkovic86/sample-middle "0.3.6"]
                  [org.clojars.vladimirmarkovic86/common-middle "0.2.5"]
                  [org.clojars.vladimirmarkovic86/common-client "0.3.13"]
                  [org.clojars.vladimirmarkovic86/server-lib "0.3.17"]
@@ -32,20 +32,20 @@
             ]
 
   :cljsbuild
-   {:builds
-    {:dev
-     {:source-paths ["src/cljs"]
-      :compiler     {:main sample-client.controller
-                     :output-to "resources/public/assets/js/main.js"
-                     :output-dir "resources/public/assets/js/out"
-                     :asset-path "assets/js/out"
-                     :pretty-print true}}
-     :prod
-     {:source-paths ["src/cljs"]
-      :compiler     {:main sample-client.controller
-                     :output-to "resources/public/assets/jsprod/main.js"
-                     :output-dir "resources/public/assets/jsprod/out"
-                     :asset-path "assets/jsprod/out"
-                     :optimizations :advanced}}
-     }})
+    {:builds
+      {:dev
+        {:source-paths ["src/cljs"]
+         :compiler     {:main sample-client.controller
+                        :output-to "resources/public/assets/js/main.js"
+                        :output-dir "resources/public/assets/js/out"
+                        :asset-path "assets/js/out"
+                        :pretty-print true}}
+       :prod
+        {:source-paths ["src/cljs"]
+         :compiler     {:main sample-client.controller
+                        :output-to "resources/public/assets/jsprod/main.js"
+                        :output-dir "resources/public/assets/jsprod/out"
+                        :asset-path "assets/jsprod/out"
+                        :optimizations :advanced}}
+       }})
 

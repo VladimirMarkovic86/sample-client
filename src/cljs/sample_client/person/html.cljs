@@ -3,29 +3,29 @@
             [common-client.allowed-actions.controller :refer [allowed-actions]]
             [language-lib.core :refer [get-label]]
             [sample-client.person.entity :refer [table-conf-fn]]
-            [sample-middle.functionalities :as fns]))
+            [sample-middle.functionalities :as smfns]))
 
 (defn nav
   "Returns map of menu item and it's sub items"
   []
   (when (or (contains?
               @allowed-actions
-              fns/person-create)
+              smfns/person-create)
             (contains?
               @allowed-actions
-              fns/person-read))
+              smfns/person-read))
     {:label (get-label 1001)
      :id "person-nav-id"
      :sub-menu [(when (contains?
                         @allowed-actions
-                        fns/person-create)
+                        smfns/person-create)
                   {:label (get-label 4)
                    :id "person-create-nav-id"
                    :evt-fn create-entity
                    :evt-p (table-conf-fn)})
                 (when (contains?
                         @allowed-actions
-                        fns/person-read)
+                        smfns/person-read)
                   {:label (get-label 5)
                    :id "person-show-all-nav-id"
                    :evt-fn gen-table
