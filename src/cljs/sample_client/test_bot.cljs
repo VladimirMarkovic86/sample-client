@@ -4,7 +4,8 @@
                                   :refer [click-elem
                                           close-window
                                           opener-console]]
-            [utils-lib.core :as utils]))
+            [utils-lib.core :as utils]
+            [sample-middle.person.entity :as smpe]))
 
 (def user-agent
      (let [user-agent (.-userAgent
@@ -80,10 +81,14 @@
       birthday
       "2018-07-02")
     (click-elem
-      "#gendermale"
+      (str
+        "#gender"
+        smpe/gender-male)
       window-obj)
     (click-elem
-      "#dietall"
+      (str
+        "#diet"
+        smpe/diet-not-vegetarian)
       window-obj)
     (aset
       activity-option
@@ -193,10 +198,14 @@
       birthday
       "2018-07-02")
     (click-elem
-      "#genderfemale"
+      (str
+        "#gender"
+        smpe/gender-female)
       window-obj)
     (click-elem
-      "#dietvegetarian"
+      (str
+        "#diet"
+        smpe/diet-vegetarian)
       window-obj)
     (aset
       activity-option
