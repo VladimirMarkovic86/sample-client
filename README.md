@@ -17,7 +17,7 @@ git clone https://github.com/VladimirMarkovic86/sample-client.git
 After that execute command:
 
 ```
-cd personal-organiser-client
+cd sample-client
 ```
 
 Add following line in hosts file:
