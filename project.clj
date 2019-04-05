@@ -15,7 +15,7 @@
                  [org.clojars.vladimirmarkovic86/sample-middle "0.3.6"]
                  [org.clojars.vladimirmarkovic86/common-middle "0.2.5"]
                  [org.clojars.vladimirmarkovic86/common-client "0.3.24"]
-                 [org.clojars.vladimirmarkovic86/server-lib "0.3.24"]
+                 [org.clojars.vladimirmarkovic86/server-lib "0.3.25"]
                  ]
 
   :min-lein-version "2.0.0"
