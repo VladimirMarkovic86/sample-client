@@ -42,6 +42,7 @@
  font-weight: bolder;
  font-size: 24px;
  margin-bottom: 20px;
+ width: 100%;
 }
 .entity .btn {
  width: calc(50% - 10px);
