@@ -1,0 +1,106 @@
+svg {
+ font-family: "Courier New", Courier, monospace;
+}
+.chart-line {
+ fill: none;
+ stroke: #0088cc;
+ stroke-width: 2;
+}
+.chart-bar:hover {
+ fill: orangered;
+}
+.pie:hover {
+ fill: orangered;
+}
+#chart-line-0 {
+ stroke: #0088cc;
+}
+.chart-bar-0 {
+ fill: #0088cc;
+}
+.pie-0 {
+ fill: #0088cc;
+}
+#legend-line-0 {
+ fill: #0088cc;
+}
+.point-0 {
+ fill: #0088cc;
+}
+.point:hover {
+ fill: transparent;
+ stroke: orangered;
+ stroke-width: 3;
+}
+#chart-line-1 {
+ stroke: orange;
+}
+.chart-bar-1 {
+ fill: orange;
+}
+.pie-1 {
+ fill: orange;
+}
+#legend-line-1 {
+ fill: orange;
+}
+.point-1 {
+ fill: orange;
+}
+#chart-line-2 {
+ stroke: red;
+}
+.chart-bar-2 {
+ fill: red;
+}
+.pie-2 {
+ fill: red;
+}
+#legend-line-2 {
+ fill: red;
+}
+.point-2 {
+ fill: red;
+}
+#point-details {
+ fill: white;
+}
+.point-details-background {
+ fill: orangered;
+}
+.point-details-background-i {
+ fill: #0088cc;
+}
+.x-axis {
+ stroke: #d5d5d5;
+ stroke-width: 1;
+}
+.y-axis {
+ stroke: #d5d5d5;
+ stroke-width: 1;
+}
+.x-axis-value-line {
+ stroke: #d5d5d5;
+ stroke-width: 1;
+}
+.x-axis-value-text {
+ fill: #d5d5d5;
+ font-size: 14px;
+}
+.y-axis-value-line {
+ stroke: #d5d5d5;
+ stroke-width: 1;
+}
+.y-axis-value-text {
+ fill: #d5d5d5;
+ font-size: 14px;
+}
+.main-title {
+ fill: #08c;
+}
+.x-axis-title {
+ fill: #08c;
+}
+.y-axis-title {
+ fill: #08c;
+}

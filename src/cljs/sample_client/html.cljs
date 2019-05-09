@@ -3,6 +3,7 @@
             [sample-middle.functionalities :as smfns]
             [common-client.allowed-actions.controller :refer [allowed-actions]]
             [sample-client.person.html :as ph]
+            [sample-client.chart.html :as ch]
             [sample-client.test-bot :refer [run-test]]
             [language-lib.core :refer [get-label]]))
 
@@ -19,6 +20,7 @@
   "Render menu items for user that have privilege for them"
   []
   [(ph/nav)
+   (ch/nav)
    (when (contains?
            @allowed-actions
            smfns/test-person-entity)
