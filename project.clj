@@ -47,6 +47,7 @@
                         :output-to "resources/public/assets/jsprod/main.js"
                         :output-dir "resources/public/assets/jsprod/out"
                         :asset-path "assets/jsprod/out"
+                        :externs ["externs.js"]
                         :optimizations :advanced}}
        }})
 
