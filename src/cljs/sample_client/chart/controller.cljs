@@ -1,7 +1,8 @@
 (ns sample-client.chart.controller
   (:require [js-lib.core :as md]
             [svg-lib.chart.core :as chart]
-            [common-middle.session :as cms]))
+            [common-middle.session :as cms]
+            [language-lib.core :refer [get-label]]))
 
 (defn display-charts
   "Renders charts in content area"
@@ -12,9 +13,12 @@
                       {:dot-values [[20 100] [25 170] [30 110]
                                     [35 160] [40 200] [45 180]
                                     [50 140] [55 160] [60 100]]
-                       :main-title "Main title"
-                       :x-axis-title "X title"
-                       :y-axis-title "Y title"
+                       :main-title (get-label
+                                     1020)
+                       :x-axis-title (get-label
+                                       1021)
+                       :y-axis-title (get-label
+                                       1022)
                        :horizontal-grid-lines true
                        :vertical-grid-lines false
                        :svg-width 500
@@ -38,12 +42,24 @@
                                        [[33 106] [35 171] [42 119]
                                         [46 164] [51 213] [54 187]
                                         [62 148] [66 166] [72 102]]]
-                          :main-title "Main title"
-                          :x-axis-title "X title"
-                          :y-axis-title "Y title"
-                          :legend {:line-names ["line 1"
-                                                "line 2"
-                                                "line 3"]
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
+                          :legend {:line-names [(str
+                                                  (get-label
+                                                    1023)
+                                                  " 1")
+                                                (str
+                                                  (get-label
+                                                    1023)
+                                                  " 2")
+                                                (str
+                                                  (get-label
+                                                    1023)
+                                                  " 3")]
                                    :position "right"}
                           :multi-line true
                           :horizontal-grid-lines true
@@ -61,12 +77,24 @@
                                         [[330000 1060000] [350000 1710000] [420000 1190000]
                                          [460000 1640000] [510000 2130000] [540000 1870000]
                                          [620000 1480000] [660000 1660000] [720000 1020000]]]
-                           :main-title "Main title"
-                           :x-axis-title "X title"
-                           :y-axis-title "Y title"
-                           :legend {:line-names ["line 1"
-                                                 "line 2"
-                                                 "line 3"]
+                           :main-title (get-label
+                                         1020)
+                           :x-axis-title (get-label
+                                           1021)
+                           :y-axis-title (get-label
+                                           1022)
+                           :legend {:line-names [(str
+                                                  (get-label
+                                                    1023)
+                                                  " 1")
+                                                 (str
+                                                  (get-label
+                                                    1023)
+                                                  " 2")
+                                                 (str
+                                                  (get-label
+                                                    1023)
+                                                  " 3")]
                                     :position "right"}
                            :multi-line true
                            :horizontal-grid-lines true
@@ -108,9 +136,12 @@
                                        [jun-2019 8]
                                        [july-2019 9]]
                           :x-value-type "date"
-                          :main-title "Main title"
-                          :x-axis-title "X title"
-                          :y-axis-title "Y title"
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
                           :horizontal-grid-lines true
                           ;:x-minimum 20
                           ;:y-minimum -100
@@ -129,9 +160,12 @@
                                       [8 jun-2019]
                                       [9 july-2019]]
                          :y-value-type "date"
-                         :main-title "Main title"
-                         :x-axis-title "X title"
-                         :y-axis-title "Y title"
+                         :main-title (get-label
+                                       1020)
+                         :x-axis-title (get-label
+                                         1021)
+                         :y-axis-title (get-label
+                                         1022)
                          :horizontal-grid-lines true
                           ;:x-minimum 20
                           ;:y-minimum -100
@@ -150,13 +184,25 @@
                                         [25 60] [40 20] [55 70]
                                         [60 30] [75 80] [90 100]]]
                           :multi-line true
-                          :legend {:line-names ["line 1"
-                                                "line 2"
-                                                "line 3"]
+                          :legend {:line-names [(str
+                                                  (get-label
+                                                    1023)
+                                                  " 1")
+                                                (str
+                                                  (get-label
+                                                    1023)
+                                                  " 2")
+                                                (str
+                                                  (get-label
+                                                    1023)
+                                                  " 3")]
                                    :position "right"}
-                          :main-title "Main title"
-                          :x-axis-title "X title"
-                          :y-axis-title "Y title"
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
                           :horizontal-grid-lines true
                           :vertical-grid-lines false
                           :svg-width 500
@@ -167,16 +213,40 @@
                           :y-maximum 100})
         svg-element-vii (chart/render-bar-chart
                           {:bar-values [10 20 30 40 50]
-                           ;:bar-labels ["data 1" "data 2" "data 3"
-                           ;             "data 4" "data 5"]
+                           ;:bar-labels [(str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 1")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 2")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 3")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 4")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 5")]
                            :bar-values-on-x-axis false
                            :value-type "number"
                            :multi-bars false
-                           ;:legend {:bar-names ["bar 1"]
+                           ;:legend {:bar-names [(str
+                           ;                       (get-label
+                           ;                         1025)
+                           ;                       " 1")]
                            ;         :position "right"}
-                           :main-title "Bar main title"
-                           :x-axis-title "Bar x title"
-                           :y-axis-title "Bar y title"
+                           :main-title (get-label
+                                         1020)
+                           :x-axis-title (get-label
+                                           1021)
+                           :y-axis-title (get-label
+                                           1022)
                            :horizontal-grid-lines true
                            :vertical-grid-lines false
                            :svg-width 500
@@ -186,16 +256,40 @@
                            :selected-language @cms/selected-language})
         svg-element-viii (chart/render-bar-chart
                            {:bar-values [10 20 30 40 50]
-                            :bar-labels ["data 1" "data 2" "data 3"
-                                         "data 4" "data 5"]
+                            :bar-labels [(str
+                                          (get-label
+                                            1024)
+                                          " 1")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 2")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 3")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 4")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 5")]
                             :bar-values-on-x-axis true
                             :value-type "number"
                             :multi-bars false
-                            ;:legend {:bar-names ["bar 1"]
+                            ;:legend {:bar-names [(str
+                            ;                       (get-label
+                            ;                         1025)
+                            ;                       " 1")]
                             ;         :position "right"}
-                            :main-title "Bar main title"
-                            :x-axis-title "Bar x title"
-                            :y-axis-title "Bar y title"
+                            :main-title (get-label
+                                          1020)
+                            :x-axis-title (get-label
+                                            1021)
+                            :y-axis-title (get-label
+                                            1022)
                             :horizontal-grid-lines false
                             :vertical-grid-lines true
                             :svg-width 500
@@ -207,16 +301,48 @@
                          {:bar-values [[10 20 30 40 50]
                                        [50 40 30 20 10]
                                        [25 25 25 25 25]]
-                          :bar-labels ["data 1" "data 2" "data 3"
-                                       "data 4" "data 5"]
+                          :bar-labels [(str
+                                          (get-label
+                                            1024)
+                                          " 1")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 2")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 3")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 4")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 5")]
                           :bar-values-on-x-axis false
                           :value-type "number"
                           :multi-bars true
-                          :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                          :legend {:bar-names [(str
+                                                 (get-label
+                                                   1025)
+                                                 " 1")
+                                               (str
+                                                 (get-label
+                                                   1025)
+                                                 " 2")
+                                               (str
+                                                 (get-label
+                                                   1025)
+                                                 " 3")]
                                    :position "right"}
-                          :main-title "Bar main title"
-                          :x-axis-title "Bar x title"
-                          :y-axis-title "Bar y title"
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
                           :horizontal-grid-lines true
                           :vertical-grid-lines false
                           :svg-width 500
@@ -228,16 +354,48 @@
                         {:bar-values [[10 20 30 40 50]
                                       [50 40 30 20 10]
                                       [25 25 25 25 25]]
-                         ;:bar-labels ["data 1" "data 2" "data 3"
-                         ;             "data 4" "data 5"]
+                         ;:bar-labels [(str
+                         ;               (get-label
+                         ;                 1024)
+                         ;               " 1")
+                         ;             (str
+                         ;               (get-label
+                         ;                 1024)
+                         ;               " 2")
+                         ;             (str
+                         ;               (get-label
+                         ;                 1024)
+                         ;               " 3")
+                         ;             (str
+                         ;               (get-label
+                         ;                 1024)
+                         ;               " 4")
+                         ;             (str
+                         ;               (get-label
+                         ;                 1024)
+                         ;               " 5")]
                          :bar-values-on-x-axis true
                          :value-type "number"
                          :multi-bars true
-                         :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                         :legend {:bar-names [(str
+                                                (get-label
+                                                  1025)
+                                                " 1")
+                                              (str
+                                                (get-label
+                                                  1025)
+                                                " 2")
+                                              (str
+                                                (get-label
+                                                  1025)
+                                                " 3")]
                                   :position "right"}
-                         :main-title "Bar main title"
-                         :x-axis-title "Bar x title"
-                         :y-axis-title "Bar y title"
+                         :main-title (get-label
+                                       1020)
+                         :x-axis-title (get-label
+                                         1021)
+                         :y-axis-title (get-label
+                                         1022)
                          :horizontal-grid-lines false
                          :vertical-grid-lines true
                          :svg-width 500
@@ -251,16 +409,40 @@
                                        february-2019
                                        march-2019
                                        april-2019]
-                          ;:bar-labels ["data 1" "data 2" "data 3"
-                          ;             "data 4" "data 5"]
+                          ;:bar-labels [(str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 1")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 2")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 3")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 4")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 5")]
                           :bar-values-on-x-axis false
                           :value-type "date"
                           :multi-bars false
-                          ;:legend {:bar-names ["bar 1"]
+                          ;:legend {:bar-names [(str
+                          ;                       (get-label
+                          ;                         1025)
+                          ;                       " 1")]
                           ;         :position "right"}
-                          :main-title "Bar main title"
-                          :x-axis-title "Bar x title"
-                          :y-axis-title "Bar y title"
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
                           :horizontal-grid-lines true
                           :vertical-grid-lines false
                           :svg-width 500
@@ -278,16 +460,40 @@
                                         may-2019
                                         jun-2019
                                         july-2019]
-                           :bar-labels ["data 1" "data 2" "data 3"
-                                        "data 4" "data 5"]
+                           :bar-labels [(str
+                                          (get-label
+                                            1024)
+                                          " 1")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 2")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 3")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 4")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 5")]
                            :bar-values-on-x-axis true
                            :value-type "date"
                            :multi-bars false
-                           ;:legend {:bar-names ["bar 1"]
+                           ;:legend {:bar-names [(str
+                           ;                       (get-label
+                           ;                         1025)
+                           ;                       " 1")]
                            ;         :position "right"}
-                           :main-title "Bar main title"
-                           :x-axis-title "Bar x title"
-                           :y-axis-title "Bar y title"
+                           :main-title (get-label
+                                         1020)
+                           :x-axis-title (get-label
+                                           1021)
+                           :y-axis-title (get-label
+                                           1022)
                            :horizontal-grid-lines false
                            :vertical-grid-lines true
                            :svg-width 500
@@ -315,16 +521,48 @@
                                           february-2019
                                           february-2019
                                           february-2019]]
-                            :bar-labels ["data 1" "data 2" "data 3"
-                                         "data 4" "data 5"]
+                            :bar-labels [(str
+                                           (get-label
+                                             1024)
+                                           " 1")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 2")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 3")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 4")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 5")]
                             :bar-values-on-x-axis false
                             :value-type "date"
                             :multi-bars true
-                            :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                            :legend {:bar-names [(str
+                                                   (get-label
+                                                     1025)
+                                                   " 1")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 2")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 3")]
                                      :position "right"}
-                            :main-title "Bar main title"
-                            :x-axis-title "Bar x title"
-                            :y-axis-title "Bar y title"
+                            :main-title (get-label
+                                          1020)
+                            :x-axis-title (get-label
+                                            1021)
+                            :y-axis-title (get-label
+                                            1022)
                             :horizontal-grid-lines true
                             :vertical-grid-lines false
                             :svg-width 500
@@ -352,16 +590,48 @@
                                          february-2019
                                          february-2019
                                          february-2019]]
-                           ;:bar-labels ["data 1" "data 2" "data 3"
-                           ;             "data 4" "data 5"]
+                           ;:bar-labels [(str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 1")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 2")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 3")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 4")
+                           ;             (str
+                           ;               (get-label
+                           ;                 1024)
+                           ;               " 5")]
                            :bar-values-on-x-axis true
                            :value-type "date"
                            :multi-bars true
-                           :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                           :legend {:bar-names [(str
+                                                  (get-label
+                                                    1025)
+                                                  " 1")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 2")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 3")]
                                     :position "right"}
-                           :main-title "Bar main title"
-                           :x-axis-title "Bar x title"
-                           :y-axis-title "Bar y title"
+                           :main-title (get-label
+                                         1020)
+                           :x-axis-title (get-label
+                                           1021)
+                           :y-axis-title (get-label
+                                           1022)
                            :horizontal-grid-lines false
                            :vertical-grid-lines true
                            :svg-width 500
@@ -375,16 +645,40 @@
                            :selected-language @cms/selected-language})
         svg-element-xv (chart/render-bar-chart
                          {:bar-values [10000 20000 30000 40000 50000]
-                          ;:bar-labels ["data 1" "data 2" "data 3"
-                          ;             "data 4" "data 5"]
+                          ;:bar-labels [(str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 1")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 2")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 3")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 4")
+                          ;             (str
+                          ;               (get-label
+                          ;                 1024)
+                          ;               " 5")]
                           :bar-values-on-x-axis false
                           :value-type "number"
                           :multi-bars false
-                          ;:legend {:bar-names ["bar 1"]
+                          ;:legend {:bar-names [(str
+                          ;                       (get-label
+                          ;                         1025)
+                          ;                       " 1")]
                           ;         :position "right"}
-                          :main-title "Bar main title"
-                          :x-axis-title "Bar x title"
-                          :y-axis-title "Bar y title"
+                          :main-title (get-label
+                                        1020)
+                          :x-axis-title (get-label
+                                          1021)
+                          :y-axis-title (get-label
+                                          1022)
                           :horizontal-grid-lines true
                           :vertical-grid-lines false
                           :svg-width 500
@@ -398,16 +692,40 @@
                                         30000000
                                         40000000
                                         50000000]
-                           :bar-labels ["data 1" "data 2" "data 3"
-                                        "data 4" "data 5"]
+                           :bar-labels [(str
+                                          (get-label
+                                            1024)
+                                          " 1")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 2")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 3")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 4")
+                                        (str
+                                          (get-label
+                                            1024)
+                                          " 5")]
                            :bar-values-on-x-axis true
                            :value-type "number"
                            :multi-bars false
-                           ;:legend {:bar-names ["bar 1"]
+                           ;:legend {:bar-names [(str
+                           ;                       (get-label
+                           ;                         1025)
+                           ;                       " 1")]
                            ;         :position "right"}
-                           :main-title "Bar main title"
-                           :x-axis-title "Bar x title"
-                           :y-axis-title "Bar y title"
+                           :main-title (get-label
+                                         1020)
+                           :x-axis-title (get-label
+                                           1021)
+                           :y-axis-title (get-label
+                                           1022)
                            :horizontal-grid-lines false
                            :vertical-grid-lines true
                            :svg-width 500
@@ -431,16 +749,48 @@
                                           25000000
                                           25000000
                                           25000000]]
-                            :bar-labels ["data 1" "data 2" "data 3"
-                                         "data 4" "data 5"]
+                            :bar-labels [(str
+                                           (get-label
+                                             1024)
+                                           " 1")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 2")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 3")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 4")
+                                         (str
+                                           (get-label
+                                             1024)
+                                           " 5")]
                             :bar-values-on-x-axis false
                             :value-type "number"
                             :multi-bars true
-                            :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                            :legend {:bar-names [(str
+                                                   (get-label
+                                                     1025)
+                                                   " 1")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 2")
+                                                 (str
+                                                   (get-label
+                                                     1025)
+                                                   " 3")]
                                      :position "right"}
-                            :main-title "Bar main title"
-                            :x-axis-title "Bar x title"
-                            :y-axis-title "Bar y title"
+                            :main-title (get-label
+                                          1020)
+                            :x-axis-title (get-label
+                                            1021)
+                            :y-axis-title (get-label
+                                            1022)
                             :horizontal-grid-lines true
                             :vertical-grid-lines false
                             :svg-width 500
@@ -452,16 +802,48 @@
                             {:bar-values [[10000 20000 30000 40000 50000]
                                           [50000 40000 30000 20000 10000]
                                           [25000 25000 25000 25000 25000]]
-                             ;:bar-labels ["data 1" "data 2" "data 3"
-                             ;             "data 4" "data 5"]
+                             ;:bar-labels [(str
+                             ;               (get-label
+                             ;                 1024)
+                             ;               " 1")
+                             ;             (str
+                             ;               (get-label
+                             ;                 1024)
+                             ;               " 2")
+                             ;             (str
+                             ;               (get-label
+                             ;                 1024)
+                             ;               " 3")
+                             ;             (str
+                             ;               (get-label
+                             ;                 1024)
+                             ;               " 4")
+                             ;             (str
+                             ;               (get-label
+                             ;                 1024)
+                             ;               " 5")]
                              :bar-values-on-x-axis true
                              :value-type "number"
                              :multi-bars true
-                             :legend {:bar-names ["bar 1" "bar 2" "bar 3"]
+                             :legend {:bar-names [(str
+                                                    (get-label
+                                                      1025)
+                                                    " 1")
+                                                  (str
+                                                    (get-label
+                                                      1025)
+                                                    " 2")
+                                                  (str
+                                                    (get-label
+                                                      1025)
+                                                    " 3")]
                                       :position "right"}
-                             :main-title "Bar main title"
-                             :x-axis-title "Bar x title"
-                             :y-axis-title "Bar y title"
+                             :main-title (get-label
+                                           1020)
+                             :x-axis-title (get-label
+                                             1021)
+                             :y-axis-title (get-label
+                                             1022)
                              :horizontal-grid-lines false
                              :vertical-grid-lines true
                              :svg-width 500
@@ -472,36 +854,84 @@
         svg-element-xix (chart/render-pie-chart
                           {:pie-values [10 20 30]
                            :value-type "number"
-                           :legend {:bar-names ["piece 1" "piece 2" "piece 3"]
+                           :legend {:bar-names [(str
+                                                  (get-label
+                                                    1026)
+                                                  " 1")
+                                                (str
+                                                  (get-label
+                                                    1026)
+                                                  " 2")
+                                                (str
+                                                  (get-label
+                                                    1026)
+                                                  " 3")]
                                     :position "top"}
-                           :main-title "Pie main title"
+                           :main-title (get-label
+                                         1020)
                            :svg-width 500
                            :svg-height 500
                            :selected-language @cms/selected-language})
         svg-element-xx (chart/render-pie-chart
                          {:pie-values [20 20 20]
                           :value-type "percentage"
-                          :legend {:bar-names ["piece 1" "piece 2" "piece 3"]
+                          :legend {:bar-names [(str
+                                                 (get-label
+                                                   1026)
+                                                 " 1")
+                                               (str
+                                                 (get-label
+                                                   1026)
+                                                 " 2")
+                                               (str
+                                                 (get-label
+                                                   1026)
+                                                 " 3")]
                                    :position "right"}
-                          :main-title "Pie main title"
+                          :main-title (get-label
+                                        1020)
                           :svg-width 500
                           :svg-height 500
                           :selected-language @cms/selected-language})
         svg-element-xxi (chart/render-pie-chart
                           {:pie-values [30 15 15]
                            :value-type "percentage"
-                           :legend {:bar-names ["piece 1" "piece 2" "piece 3"]
+                           :legend {:bar-names [(str
+                                                  (get-label
+                                                    1026)
+                                                  " 1")
+                                                (str
+                                                  (get-label
+                                                    1026)
+                                                  " 2")
+                                                (str
+                                                  (get-label
+                                                    1026)
+                                                  " 3")]
                                     :position "bottom"}
-                           :main-title "Pie main title"
+                           :main-title (get-label
+                                         1020)
                            :svg-width 500
                            :svg-height 500
                            :selected-language @cms/selected-language})
         svg-element-xxii (chart/render-pie-chart
                            {:pie-values [10 100 50]
                             :value-type "percentage"
-                            :legend {:bar-names ["piece 1" "piece 2" "piece 3"]
+                            :legend {:bar-names [(str
+                                                   (get-label
+                                                     1026)
+                                                   " 1")
+                                                 (str
+                                                   (get-label
+                                                     1026)
+                                                   " 2")
+                                                 (str
+                                                   (get-label
+                                                     1026)
+                                                   " 3")]
                                      :position "left"}
-                            :main-title "Pie main title"
+                            :main-title (get-label
+                                          1020)
                             :svg-width 500
                             :svg-height 500
                             :selected-language @cms/selected-language})]
