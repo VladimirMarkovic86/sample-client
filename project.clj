@@ -12,7 +12,7 @@
                  [org.clojars.vladimirmarkovic86/utils-lib "0.4.9"]
                  [org.clojars.vladimirmarkovic86/client-test-lib "0.2.11"]
                  [org.clojars.vladimirmarkovic86/language-lib "0.2.25"]
-                 [org.clojars.vladimirmarkovic86/sample-middle "0.3.7"]
+                 [org.clojars.vladimirmarkovic86/sample-middle "0.3.8"]
                  [org.clojars.vladimirmarkovic86/common-middle "0.2.6"]
                  [org.clojars.vladimirmarkovic86/common-client "0.3.28"]
                  [org.clojars.vladimirmarkovic86/server-lib "0.3.27"]
