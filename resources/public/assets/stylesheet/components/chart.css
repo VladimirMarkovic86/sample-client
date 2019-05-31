@@ -7,10 +7,10 @@ svg {
  stroke-width: 2;
 }
 .chart-bar:hover {
- fill: orangered;
+ fill: purple;
 }
 .pie:hover {
- fill: orangered;
+ fill: purple;
 }
 #chart-line-0 {
  stroke: #0088cc;
@@ -29,7 +29,7 @@ svg {
 }
 .point:hover {
  fill: transparent;
- stroke: orangered;
+ stroke: purple;
  stroke-width: 3;
 }
 #chart-line-1 {
@@ -66,7 +66,7 @@ svg {
  fill: white;
 }
 .point-details-background {
- fill: orangered;
+ fill: purple;
 }
 .point-details-background-i {
  fill: #0088cc;

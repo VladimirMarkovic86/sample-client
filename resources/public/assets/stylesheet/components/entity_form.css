@@ -68,12 +68,12 @@
  margin-left: 10px;
 }
 .entity label.error {
- color: orangered;
+ color: purple;
 }
 .entity label.error input,
 .entity label.error select,
 .entity label.error textarea {
- box-shadow: 0 0 10px orangered;
+ box-shadow: 0 0 10px purple;
 }
 .entity label.error span {
  display: none;
@@ -81,7 +81,7 @@
 .entity label.error:hover span {
  display: block;
  position: absolute;
- background-color: orangered;
+ background-color: purple;
  color: white;
  border-radius: 5px;
  padding: 2px 4px;
@@ -90,7 +90,7 @@
  content: "";
  border-left: 10px solid transparent;
  border-right: 10px solid transparent;
- border-bottom: 10px solid orangered;
+ border-bottom: 10px solid purple;
  position: absolute;
  top: -10px;
  left: 10px;
@@ -120,8 +120,8 @@
  overflow: auto;
 }
 .entity label.error .no-results.selection-items {
- border-color: orangered;
- color: orangered;
+ border-color: purple;
+ color: purple;
 }
 /* Computer screen */
 @media only screen
