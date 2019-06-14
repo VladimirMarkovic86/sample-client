@@ -3,6 +3,10 @@
             [websocket-lib.core :refer [base-ws-url]]
             [sample-client.html :as ht]
             [sample-middle.functionalities :as fns]
+            [sample-client.preferences.controller :as scpc]
+            [common-client.preferences.controller :as ccpc]
+            [sample-client.preferences.html :as scph]
+            [common-client.preferences.html :as ccph]
             [common-client.role.entity :as re]
             [common-client.login.controller :refer [logout
                                                     custom-menu
@@ -89,6 +93,34 @@
     re/functionalities
     fns/functionalities))
 
+(defn bind-set-specific-preferences-fn
+  "Binds project's specific preferences function to common client atom"
+  []
+  (reset!
+    ccpc/set-specific-preferences-a-fn
+    scpc/set-specific-preferences-fn))
+
+(defn bind-gather-specific-preferences-fn
+  "Binds project's specific preferences function to common client atom"
+  []
+  (reset!
+    ccpc/gather-specific-preferences-a-fn
+    scpc/gather-specific-preferences-fn))
+
+(defn bind-popup-specific-preferences-set-fn
+  "Binds project's specific preferences function to common client atom"
+  []
+  (reset!
+    ccpc/popup-specific-preferences-set-a-fn
+    scpc/popup-specific-preferences-set-fn))
+
+(defn bind-build-specific-display-tab-content-fn
+  "Binds project's specific preferences function to common client atom"
+  []
+  (reset!
+    ccph/build-specific-display-tab-content-a-fn
+    scph/build-specific-display-tab-content-fn))
+
 (defn setup-environment
   "Setup environment, https and wss urls, custom menus, home page"
   []
@@ -100,5 +132,9 @@
   (setup-home-page)
   (workaround-for-circular-dependency)
   (make-functionalities-available)
+  (bind-set-specific-preferences-fn)
+  (bind-gather-specific-preferences-fn)
+  (bind-popup-specific-preferences-set-fn)
+  (bind-build-specific-display-tab-content-fn)
   )
 

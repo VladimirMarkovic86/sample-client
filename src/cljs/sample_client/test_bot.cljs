@@ -128,23 +128,52 @@
     (str
       window-number
       " edit-inserted-entity"))
-  (let [td (md/query-selector-on-element
-             (.-document
-               window-obj)
-             (str
-               "td[title='"
-               window-number
-               user-agent
-               "firstNameTest']"))
-        tr (.-parentElement
-             td)
-        edit-btn (md/query-selector-on-element
-                   tr
-                   "td[class*='edit']")]
-    (click-elem
-      edit-btn
-      window-obj))
- )
+  (let [edit-btn-a (atom nil)]
+    (when (not= @smpe/card-columns-a
+                0)
+      (let [div (md/query-selector-on-element
+                  (.-document
+                    window-obj)
+                  (str
+                    "div[title='"
+                    window-number
+                    user-agent
+                    "firstNameTest']"))
+            div-p (.-parentElement
+                    div)
+            div-p (.-parentElement
+                    div-p)
+            edit-btn (md/query-selector-on-element
+                       div-p
+                       "div[class*='edit']")]
+        (reset!
+          edit-btn-a
+          edit-btn))
+     )
+    (when (= @smpe/card-columns-a
+             0)
+      (let [td (md/query-selector-on-element
+                 (.-document
+                   window-obj)
+                 (str
+                   "td[title='"
+                   window-number
+                   user-agent
+                   "firstNameTest']"))
+            tr (.-parentElement
+                 td)
+            edit-btn (md/query-selector-on-element
+                       tr
+                       "td[class*='edit']")]
+        (reset!
+          edit-btn-a
+          edit-btn))
+     )
+    (when @edit-btn-a
+      (click-elem
+        @edit-btn-a
+        window-obj))
+   ))
 
 (defn edit-and-submit-form
   "Edit entity data presented in form and submit form"
@@ -224,23 +253,52 @@
     (str
       window-number
       " details-inserted-entity"))
-  (let [td (md/query-selector-on-element
-             (.-document
-               window-obj)
-             (str
-               "td[title='"
-               window-number
-               user-agent
-               "firstNameTest']"))
-        tr (.-parentElement
-             td)
-        details-btn (md/query-selector-on-element
-                      tr
-                      "td[class*='details']")]
-    (click-elem
-      details-btn
-      window-obj))
-  )
+  (let [details-btn-a (atom nil)]
+    (when (not= @smpe/card-columns-a
+                0)
+      (let [div (md/query-selector-on-element
+                  (.-document
+                    window-obj)
+                  (str
+                    "div[title='"
+                    window-number
+                    user-agent
+                    "firstNameTest']"))
+            div-p (.-parentElement
+                    div)
+            div-p (.-parentElement
+                    div-p)
+            details-btn (md/query-selector-on-element
+                          div-p
+                          "div[class*='details']")]
+        (reset!
+          details-btn-a
+          details-btn))
+     )
+    (when (= @smpe/card-columns-a
+             0)
+      (let [td (md/query-selector-on-element
+                 (.-document
+                   window-obj)
+                 (str
+                   "td[title='"
+                   window-number
+                   user-agent
+                   "firstNameTest']"))
+            tr (.-parentElement
+                 td)
+            details-btn (md/query-selector-on-element
+                          tr
+                          "td[class*='details']")]
+        (reset!
+          details-btn-a
+          details-btn))
+     )
+    (when @details-btn-a
+      (click-elem
+        @details-btn-a
+        window-obj))
+   ))
 
 (defn delete-inserted-entity
   "Delete inserted entity from particular window-obj"
@@ -250,23 +308,52 @@
     (str
       window-number
       " delete-inserted-entity"))
-  (let [td (md/query-selector-on-element
-             (.-document
-               window-obj)
-             (str
-               "td[title='"
-               window-number
-               user-agent
-               "firstNameTest']"))
-        tr (.-parentElement
-             td)
-        delete-btn (md/query-selector-on-element
-                     tr
-                     "td[class*='delete']")]
-    (click-elem
-      delete-btn
-      window-obj))
- )
+  (let [delete-btn-a (atom nil)]
+    (when (not= @smpe/card-columns-a
+                0)
+      (let [div (md/query-selector-on-element
+                  (.-document
+                    window-obj)
+                  (str
+                    "div[title='"
+                    window-number
+                    user-agent
+                    "firstNameTest']"))
+            div-p (.-parentElement
+                    div)
+            div-p (.-parentElement
+                    div-p)
+            delete-btn (md/query-selector-on-element
+                         div-p
+                         "div[class*='delete']")]
+        (reset!
+          delete-btn-a
+          delete-btn))
+     )
+    (when (= @smpe/card-columns-a
+             0)
+      (let [td (md/query-selector-on-element
+                 (.-document
+                   window-obj)
+                 (str
+                   "td[title='"
+                   window-number
+                   user-agent
+                   "firstNameTest']"))
+            tr (.-parentElement
+                 td)
+            delete-btn (md/query-selector-on-element
+                         tr
+                         "td[class*='delete']")]
+        (reset!
+          delete-btn-a
+          delete-btn))
+     )
+    (when @delete-btn-a
+      (click-elem
+        @delete-btn-a
+        window-obj))
+   ))
 
 (defn test-cases-fn
   "Main test function contains vector of sub-vectors that contain:
@@ -299,7 +386,7 @@
         search-for-entity
         window-number]
        [(str
-          "td[title='"
+          "[title='"
           window-number
           user-agent
           "firstNameTest']")
@@ -312,7 +399,7 @@
         search-for-entity
         window-number]
        [(str
-          "td[title='"
+          "[title='"
           window-number
           user-agent
           "firstNameTest']")
@@ -325,7 +412,7 @@
         search-for-entity
         window-number]
        [(str
-          "td[title='"
+          "[title='"
           window-number
           user-agent
           "firstNameTest']")
@@ -341,7 +428,7 @@
         search-for-entity
         window-number]
        [(str
-          "td[title='"
+          "[title='"
           window-number
           user-agent
           "firstNameTest']")

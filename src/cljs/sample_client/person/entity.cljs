@@ -174,13 +174,15 @@
    :qsort {:first-name 1}
    :pagination true
    :current-page 0
-   :rows smpe/rows
+   :rows (smpe/calculate-rows)
    :collation {:locale "sr"}})
 
 (defn table-conf-fn
   "Table configuration for person entity"
   []
-  {:query (query-fn)
+  {:preferences smpe/preferences
+   :query-fn query-fn
+   :query (query-fn)
    :columns (columns-fn)
    :form-conf (form-conf-fn)
    :actions [:details :edit :delete]
