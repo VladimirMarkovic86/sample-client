@@ -1,2 +1,2 @@
-var svgelmeent = {};
-svgelmeent.getBBox = function() {};
+var svgelement = {};
+svgelement.getBBox = function() {};
