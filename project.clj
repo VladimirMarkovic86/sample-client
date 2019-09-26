@@ -15,7 +15,7 @@
                  [org.clojars.vladimirmarkovic86/sample-middle "0.3.15"]
                  [org.clojars.vladimirmarkovic86/common-middle "0.2.13"]
                  [org.clojars.vladimirmarkovic86/common-client "0.3.50"]
-                 [org.clojars.vladimirmarkovic86/server-lib "0.3.35"]
+                 [org.clojars.vladimirmarkovic86/server-lib "0.3.36"]
                  [org.clojars.vladimirmarkovic86/svg-lib "0.1.12"]
                  [org.clojars.vladimirmarkovic86/canvas-lib "0.1.6"]
                  ]
